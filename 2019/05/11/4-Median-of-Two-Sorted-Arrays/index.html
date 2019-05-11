@@ -96,17 +96,17 @@
 
 
 
-  <meta name="description" content="You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return">
+  <meta name="description" content="There are two sorted arrays nums1 and nums2 of size m and n respectively.Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).You may assume nums1 and nums">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2.Add Two Numbers">
-<meta property="og:url" content="http://yoursite.com/2019/05/10/2-Add-Two-Numbers/index.html">
+<meta property="og:title" content="4. Median of Two Sorted Arrays">
+<meta property="og:url" content="http://yoursite.com/2019/05/11/4-Median-of-Two-Sorted-Arrays/index.html">
 <meta property="og:site_name" content="Blog">
-<meta property="og:description" content="You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return">
+<meta property="og:description" content="There are two sorted arrays nums1 and nums2 of size m and n respectively.Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).You may assume nums1 and nums">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-11T02:42:52.711Z">
+<meta property="og:updated_time" content="2019-05-11T15:45:51.256Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="2.Add Two Numbers">
-<meta name="twitter:description" content="You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return">
+<meta name="twitter:title" content="4. Median of Two Sorted Arrays">
+<meta name="twitter:description" content="There are two sorted arrays nums1 and nums2 of size m and n respectively.Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).You may assume nums1 and nums">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/05/10/2-Add-Two-Numbers/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/11/4-Median-of-Two-Sorted-Arrays/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>2.Add Two Numbers | Blog</title>
+  <title>4. Median of Two Sorted Arrays | Blog</title>
   
 
 
@@ -306,7 +306,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/10/2-Add-Two-Numbers/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/11/4-Median-of-Two-Sorted-Arrays/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jarvis.Z">
@@ -323,7 +323,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">2.Add Two Numbers
+          <h1 class="post-title" itemprop="name headline">4. Median of Two Sorted Arrays
 
               
             
@@ -349,24 +349,12 @@
                 
               
 
-              <time title="Created: 2019-05-10 22:15:19" itemprop="dateCreated datePublished" datetime="2019-05-10T22:15:19+08:00">2019-05-10</time>
+              <time title="Created: 2019-05-11 23:41:17 / Modified: 23:45:51" itemprop="dateCreated datePublished" datetime="2019-05-11T23:41:17+08:00">2019-05-11</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-05-11 10:42:52" itemprop="dateModified" datetime="2019-05-11T10:42:52+08:00">2019-05-11</time>
               
             
           </span>
@@ -419,10 +407,9 @@
 
       
         <blockquote>
-<p>You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.<br>You may assume the two numbers do not contain any leading zero, except the number 0 itself.</p>
+<p>There are two sorted arrays nums1 and nums2 of size m and n respectively.<br>Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).<br>You may assume nums1 and nums2 cannot be both empty.</p>
 </blockquote>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">addTwoNumbers</span><span class="params">(ListNode* l1, ListNode* l2)</span> </span>&#123;</span><br><span class="line">        ListNode* head = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">        ListNode* curr = head;</span><br><span class="line">        <span class="keyword">int</span> carry = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> sum;</span><br><span class="line">        <span class="keyword">while</span>(l1 != <span class="literal">NULL</span> || l2 != <span class="literal">NULL</span>)&#123;</span><br><span class="line">            sum = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">if</span>(l1)&#123;</span><br><span class="line">                sum += l1-&gt;val;</span><br><span class="line">                l1 = l1-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(l2)&#123;</span><br><span class="line">                sum += l2-&gt;val;</span><br><span class="line">                l2 = l2-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            sum += carry;</span><br><span class="line">            curr-&gt;next = <span class="keyword">new</span> ListNode(sum%<span class="number">10</span>);</span><br><span class="line">            carry = sum / <span class="number">10</span>;</span><br><span class="line">            curr = curr-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(carry != <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="comment">// carry的值只可能是1或者0</span></span><br><span class="line">            curr-&gt;next = <span class="keyword">new</span> ListNode(<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> head-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>本题主要考察链表的相关操作，在循环里的处理上，可以判断<code>l1 != NULL || l2 != NULL</code>，也可以判断<code>l1 != NULL || l2 != NULL</code>，但是前者只需要在循环中判断力<code>l1</code>和<code>l2</code>两个指针是否为空即可，而后者却需要多个循环，虽然整体上时间复杂度是相同的，但是前者的代码会更简洁。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">findMedianSortedArrays</span><span class="params">(<span class="keyword">int</span>[] A, <span class="keyword">int</span>[] B)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> m = A.length;</span><br><span class="line">        <span class="keyword">int</span> n = B.length;</span><br><span class="line">        <span class="keyword">if</span> (m &gt; n) &#123; <span class="comment">// to ensure m&lt;=n</span></span><br><span class="line">            <span class="keyword">int</span>[] temp = A; A = B; B = temp;</span><br><span class="line">            <span class="keyword">int</span> tmp = m; m = n; n = tmp;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> iMin = <span class="number">0</span>, iMax = m, halfLen = (m + n + <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">while</span> (iMin &lt;= iMax) &#123;</span><br><span class="line">            <span class="keyword">int</span> i = (iMin + iMax) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">int</span> j = halfLen - i;</span><br><span class="line">            <span class="keyword">if</span> (i &lt; iMax &amp;&amp; B[j-<span class="number">1</span>] &gt; A[i])&#123;</span><br><span class="line">                iMin = i + <span class="number">1</span>; <span class="comment">// i is too small</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (i &gt; iMin &amp;&amp; A[i-<span class="number">1</span>] &gt; B[j]) &#123;</span><br><span class="line">                iMax = i - <span class="number">1</span>; <span class="comment">// i is too big</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123; <span class="comment">// i is perfect</span></span><br><span class="line">                <span class="keyword">int</span> maxLeft = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">if</span> (i == <span class="number">0</span>) &#123; maxLeft = B[j-<span class="number">1</span>]; &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (j == <span class="number">0</span>) &#123; maxLeft = A[i-<span class="number">1</span>]; &#125;</span><br><span class="line">                <span class="keyword">else</span> &#123; maxLeft = Math.max(A[i-<span class="number">1</span>], B[j-<span class="number">1</span>]); &#125;</span><br><span class="line">                <span class="keyword">if</span> ( (m + n) % <span class="number">2</span> == <span class="number">1</span> ) &#123; <span class="keyword">return</span> maxLeft; &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">int</span> minRight = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">if</span> (i == m) &#123; minRight = B[j]; &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (j == n) &#123; minRight = A[i]; &#125;</span><br><span class="line">                <span class="keyword">else</span> &#123; minRight = Math.min(B[j], A[i]); &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">return</span> (maxLeft + minRight) / <span class="number">2.0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0.0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -453,15 +440,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/05/10/2-Add-Two-Numbers/" rel="next" title="2.Add Two Numbers">
+                <i class="fa fa-chevron-left"></i> 2.Add Two Numbers
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/05/11/4-Median-of-Two-Sorted-Arrays/" rel="prev" title="4. Median of Two Sorted Arrays">
-                4. Median of Two Sorted Arrays <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
