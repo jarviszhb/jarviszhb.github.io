@@ -96,17 +96,17 @@
 
 
 
-  <meta name="description" content="There are two sorted arrays nums1 and nums2 of size m and n respectively. Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)). You may assume nums1 and nu">
+  <meta name="description" content="Given a 32-bit signed integer, reverse digits of an integer. Note: Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: \([−2^{31}, 2^{31}">
 <meta property="og:type" content="article">
-<meta property="og:title" content="4. Median of Two Sorted Arrays">
-<meta property="og:url" content="http://yoursite.com/2019/05/11/4-Median-of-Two-Sorted-Arrays/index.html">
+<meta property="og:title" content="7.Reverse Integer">
+<meta property="og:url" content="http://yoursite.com/2019/05/13/7-Reverse-Integer/index.html">
 <meta property="og:site_name" content="辰宿列张">
-<meta property="og:description" content="There are two sorted arrays nums1 and nums2 of size m and n respectively. Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)). You may assume nums1 and nu">
+<meta property="og:description" content="Given a 32-bit signed integer, reverse digits of an integer. Note: Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: \([−2^{31}, 2^{31}">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-13T15:10:01.001Z">
+<meta property="og:updated_time" content="2019-05-13T15:08:07.978Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="4. Median of Two Sorted Arrays">
-<meta name="twitter:description" content="There are two sorted arrays nums1 and nums2 of size m and n respectively. Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)). You may assume nums1 and nu">
+<meta name="twitter:title" content="7.Reverse Integer">
+<meta name="twitter:description" content="Given a 32-bit signed integer, reverse digits of an integer. Note: Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: \([−2^{31}, 2^{31}">
 
 
 
@@ -114,7 +114,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/05/11/4-Median-of-Two-Sorted-Arrays/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/13/7-Reverse-Integer/">
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>4. Median of Two Sorted Arrays | 辰宿列张</title>
+  <title>7.Reverse Integer | 辰宿列张</title>
   
 
 
@@ -306,7 +306,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/11/4-Median-of-Two-Sorted-Arrays/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/13/7-Reverse-Integer/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jarvis.Z">
@@ -323,7 +323,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">4. Median of Two Sorted Arrays
+          <h1 class="post-title" itemprop="name headline">7.Reverse Integer
 
               
             
@@ -349,24 +349,12 @@
                 
               
 
-              <time title="Created: 2019-05-11 23:41:17" itemprop="dateCreated datePublished" datetime="2019-05-11T23:41:17+08:00">2019-05-11</time>
+              <time title="Created: 2019-05-13 10:32:59 / Modified: 23:08:07" itemprop="dateCreated datePublished" datetime="2019-05-13T10:32:59+08:00">2019-05-13</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-05-13 23:10:01" itemprop="dateModified" datetime="2019-05-13T23:10:01+08:00">2019-05-13</time>
               
             
           </span>
@@ -419,30 +407,18 @@
 
       
         <blockquote>
-<p>There are two sorted arrays nums1 and nums2 of size m and n respectively. Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)). You may assume nums1 and nums2 cannot be both empty.</p>
+<p>Given a 32-bit signed integer, reverse digits of an integer. Note: Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: <span class="math inline">\([−2^{31}, 2^{31} − 1]\)</span>. For the purpose of this problem, assume that your function returns 0 when the reversed integer overflows.</p>
 </blockquote>
-<h2 id="思路分析">思路分析</h2>
-<p>  由于题目的时间复杂度的要求是O(log(m+n))，其实直觉就可以想到使用二分查找，所以题目的关键就变成了查找什么，也就是要确定目标元素的一些条件，首先可以将两个数组分成如下两个部分：</p>
-<p><span class="math display">\[
-\begin{split}
-left\qquad&amp;|&amp;\qquad right\\
-num1:\quad[0,\cdots,i-1]\quad&amp;|&amp;\quad[i,\cdots,m-1]\\
-num2:\quad[0,\cdots,j-1]\quad&amp;|&amp;\quad[j,\cdots,n-1]     
-\end{split}
-\]</span></p>
-<p>保证left部分和right部分的元素个数相等（如果总个数为奇数，则相差一个元素），同时要保证left部分的元素均小于等于right部分的元素，可以总结出如下2个条件:</p>
-<ol type="1">
-<li><span class="math inline">\(i+j=(m+n)/{2}\)</span></li>
-<li><span class="math inline">\(nums1[i-1]\le nums2[j] \qquad nums2[j-1]\le nums1[i]\)</span></li>
-</ol>
-<p>无论<span class="math inline">\(m+n\)</span>为奇数还是偶数，都可以条件1概括，当<span class="math inline">\(m+n\)</span>为奇数时，left部分的元素比right部分的元素少1。条件1和条件2就可以确定<span class="math inline">\(i\)</span>和<span class="math inline">\(j\)</span>，因此只需要使用二分查找在<span class="math inline">\(nums1\)</span>上查找<span class="math inline">\(i\)</span>，计算<span class="math inline">\(j\)</span>，并判断<span class="math inline">\(i\)</span>和<span class="math inline">\(j\)</span>是否满足条件即可。</p>
-<h2 id="实现细节">实现细节</h2>
-<ul>
-<li>必须保证<span class="math inline">\(m\le n\)</span>，这样可以保证通过<span class="math inline">\(i\)</span>计算出的<span class="math inline">\(j\)</span>全都在区间<span class="math inline">\([0,n]\)</span>之间</li>
-<li>务必保证right部分的编号从<span class="math inline">\(i\)</span>和<span class="math inline">\(j\)</span>开始，不能从<span class="math inline">\(i+1\)</span>和<span class="math inline">\(j+1\)</span>开始，而且二分查找的范围应该为0~m，而非m-1，因为在某些特殊的情况下，<span class="math inline">\(nums1\)</span>的left或者right部分可能没有元素，这种情况下需要用溢出的方式进行表示并处理，如<span class="math inline">\(i=0\)</span>表示<span class="math inline">\(nums1\)</span>的left部分没有元素，<span class="math inline">\(i=m\)</span>表示<span class="math inline">\(nums1\)</span>的right部分没有元素，<span class="math inline">\(nums2\)</span>同理。</li>
-</ul>
-<h2 id="代码实现">代码实现</h2>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">double</span> <span class="title">findMedianSortedArrays</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums1, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> m = nums1.size();</span><br><span class="line">        <span class="keyword">int</span> n = nums2.size();</span><br><span class="line">        <span class="keyword">if</span> (n &lt; m)&#123;</span><br><span class="line">            swap(nums1, nums2);</span><br><span class="line">            swap(m, n);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">double</span> ans = <span class="number">0.0</span>;</span><br><span class="line">        <span class="keyword">int</span> low = <span class="number">0</span>, high = m;</span><br><span class="line">        <span class="keyword">while</span>(low &lt;= high) &#123;</span><br><span class="line">            <span class="keyword">int</span> i = (low + high) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">int</span> j = (m + n) / <span class="number">2</span> - i;</span><br><span class="line">            <span class="keyword">if</span> (i != <span class="number">0</span>  &amp;&amp; j &lt; n &amp;&amp; nums1[i<span class="number">-1</span>] &gt; nums2[j])&#123;</span><br><span class="line">                high = i - <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (j != <span class="number">0</span> &amp;&amp; i &lt; m &amp;&amp; nums2[j<span class="number">-1</span>] &gt; nums1[i])&#123;</span><br><span class="line">                low = i + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">int</span> minRight;</span><br><span class="line">                <span class="keyword">if</span> (i == m) &#123;</span><br><span class="line">                    minRight = nums2[j];</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (j == n) &#123;</span><br><span class="line">                    minRight = nums1[i];</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> &#123;</span><br><span class="line">                    minRight = min(nums1[i], nums2[j]);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>((m+n) % <span class="number">2</span>) &#123;</span><br><span class="line">                    <span class="keyword">return</span> minRight;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">int</span> maxLeft;</span><br><span class="line">                <span class="keyword">if</span> (i == <span class="number">0</span>) &#123;</span><br><span class="line">                    maxLeft = nums2[j<span class="number">-1</span>];</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(j == <span class="number">0</span>) &#123;</span><br><span class="line">                    maxLeft = nums1[i<span class="number">-1</span>];</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> &#123;</span><br><span class="line">                    maxLeft = max(nums1[i<span class="number">-1</span>], nums2[j<span class="number">-1</span>]);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> (maxLeft + minRight) / <span class="number">2.0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0.0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>  这道题的主要难点是数据的溢出问题，输入的数据一定满足32位整型数的范围，但是经过翻转有可能会溢出。</p>
+<h2 id="approach-1">Approach 1</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">long</span> ret = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> sign;</span><br><span class="line">        <span class="keyword">if</span>(x &gt; <span class="number">0</span>)&#123;</span><br><span class="line">            sign = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            sign = <span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">long</span> positive_x = (<span class="keyword">long</span>)x * sign; </span><br><span class="line">        <span class="keyword">while</span>(positive_x != <span class="number">0</span>)&#123;</span><br><span class="line">            ret = ret * <span class="number">10</span> + positive_x % <span class="number">10</span>;</span><br><span class="line">            positive_x /= <span class="number">10</span>;</span><br><span class="line">            <span class="keyword">if</span>(ret &gt; INT_MAX)</span><br><span class="line">                ret = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret * sign;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>  我的第一个实现方法是先将输入数据中的负数变为正数，但是由于有符号的32位整型数中，负数比正数多一个，因此这个负数变为正数的操作也可能会溢出，因此应当使用长整型。</p>
+<p>  在这个实现方法中，我使用了两个长整型的变量，但这实际上是与题目的要求不符的，我对题目的理解是，本题只能使用int型变量，不能使用长整型，因此我对方法1进行了改进。</p>
+<h2 id="approach-2">Approach 2</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">reverse</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> ret = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(x != <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(ret &lt;= INT_MAX/<span class="number">10</span> &amp;&amp; ret &gt;= INT_MIN/<span class="number">10</span>)&#123;</span><br><span class="line">                ret = ret * <span class="number">10</span> + x % <span class="number">10</span>;</span><br><span class="line">                x /= <span class="number">10</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                ret = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>  在改进的过程中，发现了一个有趣的现象，对于Python语言来说，<code>-91//10</code>的结果是-10，<code>-91%10</code>的结果是9，而在C++中，<code>-91//10</code>的结果是-9，<code>-91%10</code>的结果是-1，这就是说，在用C++实现这道题目的时候，不需要进行负数转换成正数的操作，而如果使用python，可能这步是必不可少的了。</p>
+<p>  第二个问题是，其实只需要在循环过程中先对<code>ret</code>变量进行判断，如果运算之后会溢出，则置0，如果不会溢出，则正常进行运算，这样的话，<code>ret</code>变量将永远不会溢出，因此可以使用int型变量。</p>
+<p>tips: <code>x%10/10</code>等于0。</p>
 
       
     </div>
@@ -473,8 +449,8 @@ num2:\quad[0,\cdots,j-1]\quad&amp;|&amp;\quad[j,\cdots,n-1]
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/10/2-Add-Two-Numbers/" rel="next" title="2.Add Two Numbers">
-                <i class="fa fa-chevron-left"></i> 2.Add Two Numbers
+              <a href="/2019/05/12/5-Longest-Palindromic-Substring/" rel="next" title="5.Longest Palindromic Substring">
+                <i class="fa fa-chevron-left"></i> 5.Longest Palindromic Substring
               </a>
             
           </div>
@@ -482,10 +458,6 @@ num2:\quad[0,\cdots,j-1]\quad&amp;|&amp;\quad[j,\cdots,n-1]
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/05/12/THUCNews-和-IMDB数据集的预处理/" rel="prev" title="THUCNews 和 IMDB数据集的预处理">
-                THUCNews 和 IMDB数据集的预处理 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -615,7 +587,7 @@ num2:\quad[0,\cdots,j-1]\quad&amp;|&amp;\quad[j,\cdots,n-1]
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#思路分析"><span class="nav-number">1.</span> <span class="nav-text">思路分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现细节"><span class="nav-number">2.</span> <span class="nav-text">实现细节</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码实现"><span class="nav-number">3.</span> <span class="nav-text">代码实现</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#approach-1"><span class="nav-number">1.</span> <span class="nav-text">Approach 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#approach-2"><span class="nav-number">2.</span> <span class="nav-text">Approach 2</span></a></li></ol></div>
             
 
           </div>
