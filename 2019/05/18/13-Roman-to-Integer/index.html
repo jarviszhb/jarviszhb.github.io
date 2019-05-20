@@ -96,17 +96,17 @@
 
 
 
-  <meta name="description" content="123456789101112131415161718192021222324252627282930313233343536class Solution &amp;#123;public:    int romanToInt1(string s) &amp;#123;        map&amp;lt;string, int&amp;gt; map_roman &amp;#123;&amp;#123;&quot;I&quot;, 1&amp;#125;, &amp;#123;">
+  <meta name="description" content="Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.  思路分析   使用哈希表的思想，将罗马字符与阿拉伯数字一一对应。 实现细节   经过观察可以得出结论，只要前一个字符比后一个字符小，这两个字符代表的数字就一定是后一个字符减去前一个字符，因此在实现的过程中没必要将IV这种字符存储到">
 <meta property="og:type" content="article">
 <meta property="og:title" content="13.Roman to Integer">
 <meta property="og:url" content="http://yoursite.com/2019/05/18/13-Roman-to-Integer/index.html">
 <meta property="og:site_name" content="Friday">
-<meta property="og:description" content="123456789101112131415161718192021222324252627282930313233343536class Solution &amp;#123;public:    int romanToInt1(string s) &amp;#123;        map&amp;lt;string, int&amp;gt; map_roman &amp;#123;&amp;#123;&quot;I&quot;, 1&amp;#125;, &amp;#123;">
+<meta property="og:description" content="Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.  思路分析   使用哈希表的思想，将罗马字符与阿拉伯数字一一对应。 实现细节   经过观察可以得出结论，只要前一个字符比后一个字符小，这两个字符代表的数字就一定是后一个字符减去前一个字符，因此在实现的过程中没必要将IV这种字符存储到">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-20T07:18:03.870Z">
+<meta property="og:updated_time" content="2019-05-20T11:43:00.981Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="13.Roman to Integer">
-<meta name="twitter:description" content="123456789101112131415161718192021222324252627282930313233343536class Solution &amp;#123;public:    int romanToInt1(string s) &amp;#123;        map&amp;lt;string, int&amp;gt; map_roman &amp;#123;&amp;#123;&quot;I&quot;, 1&amp;#125;, &amp;#123;">
+<meta name="twitter:description" content="Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.  思路分析   使用哈希表的思想，将罗马字符与阿拉伯数字一一对应。 实现细节   经过观察可以得出结论，只要前一个字符比后一个字符小，这两个字符代表的数字就一定是后一个字符减去前一个字符，因此在实现的过程中没必要将IV这种字符存储到">
 
 
 
@@ -221,6 +221,23 @@
     
 
     <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
 
   </li>
         
@@ -366,7 +383,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-20 15:18:03" itemprop="dateModified" datetime="2019-05-20T15:18:03+08:00">2019-05-20</time>
+                <time title="Modified: 2019-05-20 19:43:00" itemprop="dateModified" datetime="2019-05-20T19:43:00+08:00">2019-05-20</time>
               
             
           </span>
@@ -418,7 +435,18 @@
       
 
       
-        <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">romanToInt1</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">map</span>&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt; map_roman &#123;&#123;<span class="string">"I"</span>, <span class="number">1</span>&#125;, &#123;<span class="string">"V"</span>, <span class="number">5</span>&#125;, &#123;<span class="string">"X"</span>, <span class="number">10</span>&#125;,</span><br><span class="line">                                    &#123;<span class="string">"L"</span>, <span class="number">50</span>&#125;, &#123;<span class="string">"C"</span>, <span class="number">100</span>&#125;, &#123;<span class="string">"D"</span>, <span class="number">500</span>&#125;,</span><br><span class="line">                                    &#123;<span class="string">"M"</span>, <span class="number">1000</span>&#125;, &#123;<span class="string">"IV"</span>, <span class="number">4</span>&#125;, &#123;<span class="string">"IX"</span>, <span class="number">9</span>&#125;,</span><br><span class="line">                                    &#123;<span class="string">"XL"</span>, <span class="number">40</span>&#125;, &#123;<span class="string">"XC"</span>, <span class="number">90</span>&#125;, &#123;<span class="string">"CD"</span>, <span class="number">400</span>&#125;, &#123;<span class="string">"CM"</span>, <span class="number">900</span>&#125;&#125;;</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">map</span>&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt;::iterator iter;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.size(); i++)&#123;</span><br><span class="line">            iter = map_roman.find(s.substr(i, <span class="number">2</span>));</span><br><span class="line">            <span class="keyword">if</span>(iter != map_roman.end())&#123;</span><br><span class="line">                ans += map_roman[s.substr(i, <span class="number">2</span>)];</span><br><span class="line">                i += <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                ans += map_roman[s.substr(i, <span class="number">1</span>)];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">romanToInt</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>, <span class="keyword">int</span>&gt; map_roman &#123;&#123;<span class="string">'I'</span>, <span class="number">1</span>&#125;, &#123;<span class="string">'V'</span>, <span class="number">5</span>&#125;, &#123;<span class="string">'X'</span>, <span class="number">10</span>&#125;, &#123;<span class="string">'L'</span>, <span class="number">50</span>&#125;,</span><br><span class="line">                                &#123;<span class="string">'C'</span>, <span class="number">100</span>&#125;, &#123;<span class="string">'D'</span>, <span class="number">500</span>&#125;, &#123;<span class="string">'M'</span>, <span class="number">1000</span>&#125;&#125;;</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.size(); i++)&#123;</span><br><span class="line">            <span class="keyword">if</span> (i + <span class="number">1</span> &lt; s.size() &amp;&amp; map_roman[s[i]] &lt; map_roman[s[i+<span class="number">1</span>]])&#123;</span><br><span class="line">                ans -= map_roman[s[i]];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                ans += map_roman[s[i]];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+        <blockquote>
+<p>Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.</p>
+</blockquote>
+<h2 id="思路分析">思路分析</h2>
+<p>  使用哈希表的思想，将罗马字符与阿拉伯数字一一对应。</p>
+<h2 id="实现细节">实现细节</h2>
+<p>  经过观察可以得出结论，只要前一个字符比后一个字符小，这两个字符代表的数字就一定是后一个字符减去前一个字符，因此在实现的过程中没必要将IV这种字符存储到哈希表中，只需要每次判断两个字符的大小即可，另外还需要对边界条件进行处理，防止越界。</p>
+<h2 id="代码实现">代码实现</h2>
+<h3 id="approach-1">Approach 1</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">romanToInt</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">map</span>&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt; map_roman &#123;&#123;<span class="string">"I"</span>, <span class="number">1</span>&#125;, &#123;<span class="string">"V"</span>, <span class="number">5</span>&#125;, &#123;<span class="string">"X"</span>, <span class="number">10</span>&#125;,</span><br><span class="line">                                    &#123;<span class="string">"L"</span>, <span class="number">50</span>&#125;, &#123;<span class="string">"C"</span>, <span class="number">100</span>&#125;, &#123;<span class="string">"D"</span>, <span class="number">500</span>&#125;,</span><br><span class="line">                                    &#123;<span class="string">"M"</span>, <span class="number">1000</span>&#125;, &#123;<span class="string">"IV"</span>, <span class="number">4</span>&#125;, &#123;<span class="string">"IX"</span>, <span class="number">9</span>&#125;,</span><br><span class="line">                                    &#123;<span class="string">"XL"</span>, <span class="number">40</span>&#125;, &#123;<span class="string">"XC"</span>, <span class="number">90</span>&#125;, &#123;<span class="string">"CD"</span>, <span class="number">400</span>&#125;, &#123;<span class="string">"CM"</span>, <span class="number">900</span>&#125;&#125;;</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">map</span>&lt;<span class="built_in">string</span>, <span class="keyword">int</span>&gt;::iterator iter;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.size(); i++)&#123;</span><br><span class="line">            iter = map_roman.find(s.substr(i, <span class="number">2</span>));</span><br><span class="line">            <span class="keyword">if</span>(iter != map_roman.end())&#123;</span><br><span class="line">                ans += map_roman[s.substr(i, <span class="number">2</span>)];</span><br><span class="line">                i += <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                ans += map_roman[s.substr(i, <span class="number">1</span>)];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="approach-2">Approach 2</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">romanToInt</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>, <span class="keyword">int</span>&gt; map_roman &#123;&#123;<span class="string">'I'</span>, <span class="number">1</span>&#125;, &#123;<span class="string">'V'</span>, <span class="number">5</span>&#125;, &#123;<span class="string">'X'</span>, <span class="number">10</span>&#125;, &#123;<span class="string">'L'</span>, <span class="number">50</span>&#125;,</span><br><span class="line">                                &#123;<span class="string">'C'</span>, <span class="number">100</span>&#125;, &#123;<span class="string">'D'</span>, <span class="number">500</span>&#125;, &#123;<span class="string">'M'</span>, <span class="number">1000</span>&#125;&#125;;</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.size(); i++)&#123;</span><br><span class="line">            <span class="keyword">if</span> (i + <span class="number">1</span> &lt; s.size() &amp;&amp; map_roman[s[i]] &lt; map_roman[s[i+<span class="number">1</span>]])&#123;</span><br><span class="line">                ans -= map_roman[s[i]];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                ans += map_roman[s[i]];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -458,6 +486,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/20/14-Longest-Common-Prefix/" rel="prev" title="14.Longest Common Prefix">
+                14.Longest Common Prefix <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -501,8 +533,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -517,7 +558,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-count">13</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -543,6 +584,25 @@
               
 
               
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
             </nav>
           
 
@@ -565,6 +625,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#思路分析"><span class="nav-number">1.</span> <span class="nav-text">思路分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现细节"><span class="nav-number">2.</span> <span class="nav-text">实现细节</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码实现"><span class="nav-number">3.</span> <span class="nav-text">代码实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#approach-1"><span class="nav-number">3.1.</span> <span class="nav-text">Approach 1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#approach-2"><span class="nav-number">3.2.</span> <span class="nav-text">Approach 2</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       

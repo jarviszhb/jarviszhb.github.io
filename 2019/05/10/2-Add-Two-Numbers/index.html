@@ -103,7 +103,7 @@
 <meta property="og:site_name" content="Friday">
 <meta property="og:description" content="You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-14T16:26:54.486Z">
+<meta property="og:updated_time" content="2019-05-20T11:05:30.317Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2.Add Two Numbers">
 <meta name="twitter:description" content="You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return">
@@ -221,6 +221,23 @@
     
 
     <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
 
   </li>
         
@@ -366,7 +383,7 @@
                 
                   <span class="post-meta-item-text">Edited on</span>
                 
-                <time title="Modified: 2019-05-15 00:26:54" itemprop="dateModified" datetime="2019-05-15T00:26:54+08:00">2019-05-15</time>
+                <time title="Modified: 2019-05-20 19:05:30" itemprop="dateModified" datetime="2019-05-20T19:05:30+08:00">2019-05-20</time>
               
             
           </span>
@@ -421,8 +438,12 @@
         <blockquote>
 <p>You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list. You may assume the two numbers do not contain any leading zero, except the number 0 itself.</p>
 </blockquote>
+<h2 id="思路分析">思路分析</h2>
+<p>  本题比较简单，模拟手动加法的操作，使用变量<code>carry</code>保存进位即可。</p>
+<h2 id="实现细节">实现细节</h2>
+<p>  在循环里的处理上，可以判断<code>l1 != NULL || l2 != NULL</code>，也可以判断<code>l1 != NULL &amp;&amp; l2 != NULL</code>，但是前者只需要在循环中判断<code>l1</code>和<code>l2</code>两个指针是否为空即可，而后者却需要多个循环，虽然整体上时间复杂度是相同的，但是前者的代码会更简洁。</p>
+<h2 id="代码实现">代码实现</h2>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">addTwoNumbers</span><span class="params">(ListNode* l1, ListNode* l2)</span> </span>&#123;</span><br><span class="line">        ListNode* head = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">        ListNode* curr = head;</span><br><span class="line">        <span class="keyword">int</span> carry = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> sum;</span><br><span class="line">        <span class="keyword">while</span>(l1 != <span class="literal">NULL</span> || l2 != <span class="literal">NULL</span>)&#123;</span><br><span class="line">            sum = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">if</span>(l1)&#123;</span><br><span class="line">                sum += l1-&gt;val;</span><br><span class="line">                l1 = l1-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(l2)&#123;</span><br><span class="line">                sum += l2-&gt;val;</span><br><span class="line">                l2 = l2-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            sum += carry;</span><br><span class="line">            curr-&gt;next = <span class="keyword">new</span> ListNode(sum%<span class="number">10</span>);</span><br><span class="line">            carry = sum / <span class="number">10</span>;</span><br><span class="line">            curr = curr-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(carry != <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="comment">// carry的值只可能是1或者0</span></span><br><span class="line">            curr-&gt;next = <span class="keyword">new</span> ListNode(<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> head-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>本题主要考察链表的相关操作，在循环里的处理上，可以判断<code>l1 != NULL || l2 != NULL</code>，也可以判断<code>l1 != NULL || l2 != NULL</code>，但是前者只需要在循环中判断力<code>l1</code>和<code>l2</code>两个指针是否为空即可，而后者却需要多个循环，虽然整体上时间复杂度是相同的，但是前者的代码会更简洁。</p>
 
       
     </div>
@@ -505,8 +526,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -521,7 +551,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">9</span>
+                    <span class="site-state-item-count">13</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
@@ -547,6 +577,25 @@
               
 
               
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">tags</span>
+                  </a>
+                </div>
+              
             </nav>
           
 
@@ -569,6 +618,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#思路分析"><span class="nav-number">1.</span> <span class="nav-text">思路分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现细节"><span class="nav-number">2.</span> <span class="nav-text">实现细节</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码实现"><span class="nav-number">3.</span> <span class="nav-text">代码实现</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       

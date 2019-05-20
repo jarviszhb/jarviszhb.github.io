@@ -96,17 +96,18 @@
 
 
 
-  <meta name="description" content="There are two sorted arrays nums1 and nums2 of size m and n respectively. Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)). You may assume nums1 and nu">
+  <meta name="description" content="Given an array nums of n integers, are there elements a, b, c in nums such that a + b + c = 0? Find all unique triplets in the array which gives the sum of zero. Note:The solution set must not contai">
+<meta name="keywords" content="-array">
 <meta property="og:type" content="article">
-<meta property="og:title" content="4. Median of Two Sorted Arrays">
-<meta property="og:url" content="http://yoursite.com/2019/05/11/4-Median-of-Two-Sorted-Arrays/index.html">
+<meta property="og:title" content="15.3Sum">
+<meta property="og:url" content="http://yoursite.com/2019/05/20/15-3Sum/index.html">
 <meta property="og:site_name" content="Friday">
-<meta property="og:description" content="There are two sorted arrays nums1 and nums2 of size m and n respectively. Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)). You may assume nums1 and nu">
+<meta property="og:description" content="Given an array nums of n integers, are there elements a, b, c in nums such that a + b + c = 0? Find all unique triplets in the array which gives the sum of zero. Note:The solution set must not contai">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-14T16:26:18.851Z">
+<meta property="og:updated_time" content="2019-05-20T14:48:02.475Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="4. Median of Two Sorted Arrays">
-<meta name="twitter:description" content="There are two sorted arrays nums1 and nums2 of size m and n respectively. Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)). You may assume nums1 and nu">
+<meta name="twitter:title" content="15.3Sum">
+<meta name="twitter:description" content="Given an array nums of n integers, are there elements a, b, c in nums such that a + b + c = 0? Find all unique triplets in the array which gives the sum of zero. Note:The solution set must not contai">
 
 
 
@@ -114,7 +115,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/05/11/4-Median-of-Two-Sorted-Arrays/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/20/15-3Sum/">
 
 
 
@@ -124,7 +125,7 @@
   };
 </script>
 
-  <title>4. Median of Two Sorted Arrays | Friday</title>
+  <title>15.3Sum | Friday</title>
   
 
 
@@ -323,7 +324,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/11/4-Median-of-Two-Sorted-Arrays/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/20/15-3Sum/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jarvis.Z">
@@ -340,7 +341,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">4. Median of Two Sorted Arrays
+          <h1 class="post-title" itemprop="name headline">15.3Sum
 
               
             
@@ -366,24 +367,12 @@
                 
               
 
-              <time title="Created: 2019-05-11 23:41:17" itemprop="dateCreated datePublished" datetime="2019-05-11T23:41:17+08:00">2019-05-11</time>
+              <time title="Created: 2019-05-20 19:48:24 / Modified: 22:48:02" itemprop="dateCreated datePublished" datetime="2019-05-20T19:48:24+08:00">2019-05-20</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-05-15 00:26:18" itemprop="dateModified" datetime="2019-05-15T00:26:18+08:00">2019-05-15</time>
               
             
           </span>
@@ -436,30 +425,18 @@
 
       
         <blockquote>
-<p>There are two sorted arrays nums1 and nums2 of size m and n respectively. Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)). You may assume nums1 and nums2 cannot be both empty.</p>
+<p>Given an array nums of n integers, are there elements a, b, c in nums such that a + b + c = 0? Find all unique triplets in the array which gives the sum of zero.<br> <strong>Note:</strong>The solution set must not contain duplicate triplets.</p>
 </blockquote>
 <h2 id="思路分析">思路分析</h2>
-<p>  由于题目的时间复杂度的要求是<span class="math inline">\(O(log(m+n))\)</span>，其实直觉就可以想到使用二分查找，所以题目的关键就变成了查找什么，也就是要确定目标元素的一些条件，首先可以将两个数组分成如下两个部分：</p>
-<p><span class="math display">\[
-\begin{split}
-left\qquad&amp;|&amp;\qquad right\\
-num1:\quad[0,\cdots,i-1]\quad&amp;|&amp;\quad[i,\cdots,m-1]\\
-num2:\quad[0,\cdots,j-1]\quad&amp;|&amp;\quad[j,\cdots,n-1]
-\end{split}
-\]</span></p>
-<p>保证<span class="math inline">\(left\)</span>部分和<span class="math inline">\(right\)</span>部分的元素个数相等（如果总个数为奇数，则相差一个元素），同时要保证<span class="math inline">\(left\)</span>部分的元素均小于等于<span class="math inline">\(right\)</span>部分的元素，可以总结出如下2个条件:</p>
-<ol type="1">
-<li><span class="math inline">\(i+j=(m+n)/{2}\)</span></li>
-<li><span class="math inline">\(nums1[i-1]\le nums2[j] \qquad nums2[j-1]\le nums1[i]\)</span></li>
-</ol>
-<p>无论<span class="math inline">\(m+n\)</span>为奇数还是偶数，都可以条件1概括，当<span class="math inline">\(m+n\)</span>为奇数时，<span class="math inline">\(left\)</span>部分的元素比<span class="math inline">\(right\)</span>部分的元素少1。条件1和条件2同时成立就可以确定<span class="math inline">\(i\)</span>和<span class="math inline">\(j\)</span>，因此只需要使用二分查找在<span class="math inline">\(nums1\)</span>上查找<span class="math inline">\(i\)</span>，计算<span class="math inline">\(j\)</span>，并判断<span class="math inline">\(i\)</span>和<span class="math inline">\(j\)</span>是否满足条件即可。</p>
+<p>  由于数组中的元素并不唯一，因此不能使用哈希表来做这道题，所以如果不对数组进行排序，本题的时间复杂度就会达到<span class="math inline">\(O(n^3)\)</span>。因此先对数组进行排序，然后使用夹逼的思想寻找目标即可。</p>
 <h2 id="实现细节">实现细节</h2>
-<ul>
-<li>必须保证<span class="math inline">\(m\le n\)</span>，这样可以保证通过<span class="math inline">\(i\)</span>计算出的<span class="math inline">\(j\)</span>全都在区间<span class="math inline">\([0,n]\)</span>之间</li>
-<li>务必保证right部分的编号从<span class="math inline">\(i\)</span>和<span class="math inline">\(j\)</span>开始，不能从<span class="math inline">\(i+1\)</span>和<span class="math inline">\(j+1\)</span>开始，而且二分查找的范围应该为<span class="math inline">\(0~m\)</span>，而非<span class="math inline">\(m-1\)</span>，因为在某些特殊的情况下，<span class="math inline">\(nums1\)</span>的<span class="math inline">\(left\)</span>或者<span class="math inline">\(right\)</span>部分可能没有元素，这种情况下需要用溢出的方式进行表示并处理，如<span class="math inline">\(i=0\)</span>表示<span class="math inline">\(nums1\)</span>的<span class="math inline">\(left\)</span>部分没有元素，<span class="math inline">\(i=m\)</span>表示<span class="math inline">\(nums1\)</span>的<span class="math inline">\(right\)</span>部分没有元素，<span class="math inline">\(nums2\)</span>同理。</li>
-</ul>
+<ol type="1">
+<li><code>sort(nums.begin(), nums.end());</code></li>
+<li><code>triplet.clear();</code></li>
+<li>注意处理重复元素</li>
+</ol>
 <h2 id="代码实现">代码实现</h2>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">double</span> <span class="title">findMedianSortedArrays</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums1, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> m = nums1.size();</span><br><span class="line">        <span class="keyword">int</span> n = nums2.size();</span><br><span class="line">        <span class="keyword">if</span> (n &lt; m)&#123;</span><br><span class="line">            swap(nums1, nums2);</span><br><span class="line">            swap(m, n);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">double</span> ans = <span class="number">0.0</span>;</span><br><span class="line">        <span class="keyword">int</span> low = <span class="number">0</span>, high = m;</span><br><span class="line">        <span class="keyword">while</span>(low &lt;= high) &#123;</span><br><span class="line">            <span class="keyword">int</span> i = (low + high) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">int</span> j = (m + n) / <span class="number">2</span> - i;</span><br><span class="line">            <span class="keyword">if</span> (i != <span class="number">0</span>  &amp;&amp; j &lt; n &amp;&amp; nums1[i<span class="number">-1</span>] &gt; nums2[j])&#123;</span><br><span class="line">                high = i - <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (j != <span class="number">0</span> &amp;&amp; i &lt; m &amp;&amp; nums2[j<span class="number">-1</span>] &gt; nums1[i])&#123;</span><br><span class="line">                low = i + <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">int</span> minRight;</span><br><span class="line">                <span class="keyword">if</span> (i == m) &#123;</span><br><span class="line">                    minRight = nums2[j];</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (j == n) &#123;</span><br><span class="line">                    minRight = nums1[i];</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> &#123;</span><br><span class="line">                    minRight = min(nums1[i], nums2[j]);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>((m+n) % <span class="number">2</span>) &#123;</span><br><span class="line">                    <span class="keyword">return</span> minRight;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">int</span> maxLeft;</span><br><span class="line">                <span class="keyword">if</span> (i == <span class="number">0</span>) &#123;</span><br><span class="line">                    maxLeft = nums2[j<span class="number">-1</span>];</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(j == <span class="number">0</span>) &#123;</span><br><span class="line">                    maxLeft = nums1[i<span class="number">-1</span>];</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> &#123;</span><br><span class="line">                    maxLeft = max(nums1[i<span class="number">-1</span>], nums2[j<span class="number">-1</span>]);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">return</span> (maxLeft + minRight) / <span class="number">2.0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0.0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; threeSum(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        <span class="keyword">int</span> n = nums.size();</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; triplet(<span class="number">3</span>);</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; ans;</span><br><span class="line">        sort(nums.begin(), nums.end());</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> target = -nums[i];</span><br><span class="line">            <span class="keyword">int</span> front = i + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">int</span> rear = n - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">while</span>(front &lt; rear)&#123;</span><br><span class="line">                <span class="keyword">int</span> sum = nums[front] + nums[rear];</span><br><span class="line">                <span class="keyword">if</span>(sum &gt; target)&#123;</span><br><span class="line">                    rear -= <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(sum &lt; target)&#123;</span><br><span class="line">                    front += <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    triplet.clear();</span><br><span class="line">                    triplet.push_back(nums[i]);</span><br><span class="line">                    triplet.push_back(nums[front]);</span><br><span class="line">                    triplet.push_back(nums[rear]);</span><br><span class="line">                    ans.push_back(triplet);</span><br><span class="line">                    <span class="comment">// Processing duplicates of Number 2</span></span><br><span class="line">                    <span class="keyword">while</span>(front &lt; rear &amp;&amp; triplet[<span class="number">1</span>] == nums[front])&#123;</span><br><span class="line">                        front += <span class="number">1</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="comment">// Processing duplicates of Number 3</span></span><br><span class="line">                    <span class="keyword">while</span>(front &lt; rear &amp;&amp; triplet[<span class="number">2</span>] == nums[rear])&#123;</span><br><span class="line">                        rear -= <span class="number">1</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// Processing duplicates of Number 1</span></span><br><span class="line">            <span class="keyword">while</span>(i+<span class="number">1</span> &lt; n &amp;&amp; nums[i+<span class="number">1</span>] == nums[i])&#123;</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -481,6 +458,12 @@ num2:\quad[0,\cdots,j-1]\quad&amp;|&amp;\quad[j,\cdots,n-1]
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/array/" rel="tag"># -array</a>
+          
+        </div>
+      
 
       
       
@@ -490,8 +473,8 @@ num2:\quad[0,\cdots,j-1]\quad&amp;|&amp;\quad[j,\cdots,n-1]
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/10/2-Add-Two-Numbers/" rel="next" title="2.Add Two Numbers">
-                <i class="fa fa-chevron-left"></i> 2.Add Two Numbers
+              <a href="/2019/05/20/14-Longest-Common-Prefix/" rel="next" title="14.Longest Common Prefix">
+                <i class="fa fa-chevron-left"></i> 14.Longest Common Prefix
               </a>
             
           </div>
@@ -500,8 +483,8 @@ num2:\quad[0,\cdots,j-1]\quad&amp;|&amp;\quad[j,\cdots,n-1]
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/05/12/5-Longest-Palindromic-Substring/" rel="prev" title="5.Longest Palindromic Substring">
-                5.Longest Palindromic Substring <i class="fa fa-chevron-right"></i>
+              <a href="/2019/05/20/16-3Sum-Closest/" rel="prev" title="16.3Sum Closest">
+                16.3Sum Closest <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
