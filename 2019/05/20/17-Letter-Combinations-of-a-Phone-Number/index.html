@@ -96,14 +96,17 @@
 
 
 
-  <meta property="og:type" content="article">
+  <meta name="description" content="Given a string containing digits from 2-9 inclusive, return all possible letter combinations that the number could represent. A mapping of digit to letters (just like on the telephone buttons) is giv">
+<meta property="og:type" content="article">
 <meta property="og:title" content="17.Letter Combinations of a Phone Number">
 <meta property="og:url" content="http://yoursite.com/2019/05/20/17-Letter-Combinations-of-a-Phone-Number/index.html">
 <meta property="og:site_name" content="Friday">
+<meta property="og:description" content="Given a string containing digits from 2-9 inclusive, return all possible letter combinations that the number could represent. A mapping of digit to letters (just like on the telephone buttons) is giv">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-20T11:49:06.830Z">
+<meta property="og:updated_time" content="2019-05-21T12:17:12.223Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="17.Letter Combinations of a Phone Number">
+<meta name="twitter:description" content="Given a string containing digits from 2-9 inclusive, return all possible letter combinations that the number could represent. A mapping of digit to letters (just like on the telephone buttons) is giv">
 
 
 
@@ -367,8 +370,42 @@
             
 
             
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-05-21 20:17:12" itemprop="dateModified" datetime="2019-05-21T20:17:12+08:00">2019-05-21</time>
+              
+            
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/leetcode/" itemprop="url" rel="index"><span itemprop="name">leetcode</span></a></span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -398,7 +435,13 @@
       
 
       
-        
+        <blockquote>
+<p>Given a string containing digits from 2-9 inclusive, return all possible letter combinations that the number could represent.<br> A mapping of digit to letters (just like on the telephone buttons) is given below. Note that 1 does not map to any letters.</p>
+</blockquote>
+<h2 id="题目分析">题目分析</h2>
+<h2 id="实现细节">实现细节</h2>
+<h2 id="代码实现">代码实现</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; letterCombinations(<span class="built_in">string</span> digits) &#123;</span><br><span class="line">        <span class="built_in">unordered_map</span>&lt;<span class="keyword">char</span>, <span class="built_in">string</span>&gt; number_map &#123;&#123;<span class="string">'2'</span>, <span class="string">"abc"</span>&#125;, &#123;<span class="string">'3'</span>, <span class="string">"def"</span>&#125;, &#123;<span class="string">'4'</span>, <span class="string">"ghi"</span>&#125;,</span><br><span class="line">                                            &#123;<span class="string">'5'</span>, <span class="string">"jkl"</span>&#125;, &#123;<span class="string">'6'</span>, <span class="string">"mno"</span>&#125;, &#123;<span class="string">'7'</span>, <span class="string">"pqrs"</span>&#125;,</span><br><span class="line">                                            &#123;<span class="string">'8'</span>, <span class="string">"tuv"</span>&#125;, &#123;<span class="string">'9'</span>, <span class="string">"wxyz"</span>&#125;&#125;;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; ans;</span><br><span class="line">        <span class="keyword">if</span>(digits.size() == <span class="number">1</span>)&#123;</span><br><span class="line">            <span class="built_in">string</span> seq = number_map[digits[<span class="number">0</span>]];</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; seq.size(); i++)&#123;</span><br><span class="line">                ans.push_back(seq.substr(i, <span class="number">1</span>));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">char</span> first_digit = digits[<span class="number">0</span>];</span><br><span class="line">            <span class="built_in">string</span> seq = number_map[first_digit];</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; seq.size(); i++)&#123;</span><br><span class="line">                <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; sub_ans = letterCombinations(digits.substr(<span class="number">1</span>));</span><br><span class="line">                <span class="comment">// for(int j = 0; j &lt; sub_ans.size(); j++)&#123;</span></span><br><span class="line">                <span class="comment">//     ans.push_back(seq.substr(i, 1) + sub_ans[j]);</span></span><br><span class="line">                <span class="comment">// &#125;</span></span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">auto</span> item: sub_ans)&#123;</span><br><span class="line">                    ans.push_back(seq.substr(i, <span class="number">1</span>) + item);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -481,8 +524,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -564,6 +616,23 @@
         </div>
       </div>
 
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目分析"><span class="nav-number">1.</span> <span class="nav-text">题目分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现细节"><span class="nav-number">2.</span> <span class="nav-text">实现细节</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码实现"><span class="nav-number">3.</span> <span class="nav-text">代码实现</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
       
 
       
