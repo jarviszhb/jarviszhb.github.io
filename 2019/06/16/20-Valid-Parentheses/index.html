@@ -96,17 +96,18 @@
 
 
 
-  <meta name="description" content="Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.  思路分析   本题比较简单，可以先判断输入的位数，然后依次判断首位数字是否相等，也可以将输入反转，并判断是否与原输入相等 实现细节  pow()函数的返回值是do">
+  <meta name="description" content="Given a string containing just the characters &apos;(&apos;, &apos;)&apos;, &apos;{&apos;, &apos;}&apos;, &apos;[&apos; and &apos;]&apos;, determine if the input string is valid.  思路分析   使用栈来对括号进行匹配 实现细节  栈的pop()和top()方法使用之前应该确保栈非空 字符串的find()方法，如果没有找到想要找得字符则返">
+<meta name="keywords" content="string,stack">
 <meta property="og:type" content="article">
-<meta property="og:title" content="9.Palindrome Number">
-<meta property="og:url" content="http://yoursite.com/2019/05/15/9-Palindrome-Number/index.html">
+<meta property="og:title" content="20.Valid Parentheses">
+<meta property="og:url" content="http://yoursite.com/2019/06/16/20-Valid-Parentheses/index.html">
 <meta property="og:site_name" content="Friday">
-<meta property="og:description" content="Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.  思路分析   本题比较简单，可以先判断输入的位数，然后依次判断首位数字是否相等，也可以将输入反转，并判断是否与原输入相等 实现细节  pow()函数的返回值是do">
+<meta property="og:description" content="Given a string containing just the characters &apos;(&apos;, &apos;)&apos;, &apos;{&apos;, &apos;}&apos;, &apos;[&apos; and &apos;]&apos;, determine if the input string is valid.  思路分析   使用栈来对括号进行匹配 实现细节  栈的pop()和top()方法使用之前应该确保栈非空 字符串的find()方法，如果没有找到想要找得字符则返">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-15T13:48:42.778Z">
+<meta property="og:updated_time" content="2019-06-16T14:22:39.468Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="9.Palindrome Number">
-<meta name="twitter:description" content="Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.  思路分析   本题比较简单，可以先判断输入的位数，然后依次判断首位数字是否相等，也可以将输入反转，并判断是否与原输入相等 实现细节  pow()函数的返回值是do">
+<meta name="twitter:title" content="20.Valid Parentheses">
+<meta name="twitter:description" content="Given a string containing just the characters &apos;(&apos;, &apos;)&apos;, &apos;{&apos;, &apos;}&apos;, &apos;[&apos; and &apos;]&apos;, determine if the input string is valid.  思路分析   使用栈来对括号进行匹配 实现细节  栈的pop()和top()方法使用之前应该确保栈非空 字符串的find()方法，如果没有找到想要找得字符则返">
 
 
 
@@ -114,7 +115,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/05/15/9-Palindrome-Number/">
+  <link rel="canonical" href="http://yoursite.com/2019/06/16/20-Valid-Parentheses/">
 
 
 
@@ -124,7 +125,7 @@
   };
 </script>
 
-  <title>9.Palindrome Number | Friday</title>
+  <title>20.Valid Parentheses | Friday</title>
   
 
 
@@ -323,7 +324,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/15/9-Palindrome-Number/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/16/20-Valid-Parentheses/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jarvis.Z">
@@ -340,7 +341,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">9.Palindrome Number
+          <h1 class="post-title" itemprop="name headline">20.Valid Parentheses
 
               
             
@@ -366,7 +367,7 @@
                 
               
 
-              <time title="Created: 2019-05-15 21:35:56 / Modified: 21:48:42" itemprop="dateCreated datePublished" datetime="2019-05-15T21:35:56+08:00">2019-05-15</time>
+              <time title="Created: 2019-06-16 21:52:26 / Modified: 22:22:39" itemprop="dateCreated datePublished" datetime="2019-06-16T21:52:26+08:00">2019-06-16</time>
             
 
             
@@ -424,20 +425,21 @@
 
       
         <blockquote>
-<p>Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.</p>
+<p>Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.</p>
 </blockquote>
 <h2 id="思路分析">思路分析</h2>
-<p>  本题比较简单，可以先判断输入的位数，然后依次判断首位数字是否相等，也可以将输入反转，并判断是否与原输入相等</p>
+<p>  使用栈来对括号进行匹配</p>
 <h2 id="实现细节">实现细节</h2>
 <ol type="1">
-<li><code>pow()</code>函数的返回值是double型，所以在使用的时候，有时需要对其进行强制类型转换</li>
-<li>在对输入进行反转的过程中，反转后的数，可能会超出<code>int</code>的范围，因此反转变量应该使用<code>long</code>型</li>
+<li>栈的<code>pop()</code>和<code>top()</code>方法使用之前应该确保栈非空</li>
+<li>字符串的<code>find()</code>方法，如果没有找到想要找得字符则返回<code>string::npos</code></li>
+<li>循环结束的时候，只有栈为空才能返回<code>true</code></li>
 </ol>
 <h2 id="代码实现">代码实现</h2>
-<h3 id="approach1">Approach1</h3>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPalindrome</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (x &lt; <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">int</span> digit = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> num = x;</span><br><span class="line">        <span class="keyword">while</span>(x)&#123;</span><br><span class="line">            x /= <span class="number">10</span>;</span><br><span class="line">            digit += <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(digit &gt; <span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(num/(<span class="keyword">int</span>)<span class="built_in">pow</span>(<span class="number">10</span>, digit<span class="number">-1</span>) == num % <span class="number">10</span>)&#123;</span><br><span class="line">                num %= (<span class="keyword">int</span>)<span class="built_in">pow</span>(<span class="number">10</span>, digit<span class="number">-1</span>);</span><br><span class="line">                num /= <span class="number">10</span>;</span><br><span class="line">                digit -= <span class="number">2</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h3 id="approach2">Approach2</h3>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isPalindrome</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (x &lt; <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">int</span> num = x;</span><br><span class="line">        <span class="keyword">long</span> convert = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(num)&#123;</span><br><span class="line">            convert = convert * <span class="number">10</span> + num % <span class="number">10</span>;</span><br><span class="line">            num /= <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (x == convert) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="approach-1">Approach 1</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isValid</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">stack</span>&lt;<span class="keyword">char</span>&gt; stk;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> c: s)&#123;</span><br><span class="line">            <span class="keyword">if</span>(c==<span class="string">'('</span> || c==<span class="string">'['</span> || c==<span class="string">'&#123;'</span>) stk.push(c);</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(stk.empty()) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">if</span> (stk.top() == <span class="string">'('</span> &amp;&amp; c != <span class="string">')'</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(stk.top() == <span class="string">'['</span> &amp;&amp; c != <span class="string">']'</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(stk.top() == <span class="string">'&#123;'</span> &amp;&amp; c != <span class="string">'&#125;'</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                <span class="comment">//pop之前要检验是否为空</span></span><br><span class="line">                <span class="keyword">else</span> stk.pop();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> stk.empty();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="approach-2">Approach 2</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isValid</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">string</span> left = <span class="string">"([&#123;"</span>;</span><br><span class="line">        <span class="built_in">string</span> right = <span class="string">")]&#125;"</span>;</span><br><span class="line">        <span class="built_in">stack</span>&lt;<span class="keyword">char</span>&gt; stk;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> c: s)&#123;</span><br><span class="line">            <span class="keyword">if</span>(left.find(c) != <span class="built_in">string</span>::npos)&#123;</span><br><span class="line">                stk.push(c);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">if</span>(stk.empty() || stk.top()!=left[right.find(c)])&#123;</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    stk.pop();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> stk.empty();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -459,6 +461,14 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/string/" rel="tag"># string</a>
+          
+            <a href="/tags/stack/" rel="tag"># stack</a>
+          
+        </div>
+      
 
       
       
@@ -468,8 +478,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/15/8-String-to-Integer-atoi/" rel="next" title="8.String to Integer (atoi)">
-                <i class="fa fa-chevron-left"></i> 8.String to Integer (atoi)
+              <a href="/2019/06/16/19-Remove-Nth-Node-From-End-of-List/" rel="next" title="19.Remove Nth Node From End of List">
+                <i class="fa fa-chevron-left"></i> 19.Remove Nth Node From End of List
               </a>
             
           </div>
@@ -478,8 +488,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/05/16/10-Regular-Expression-Matching/" rel="prev" title="10.Regular Expression Matching">
-                10.Regular Expression Matching <i class="fa fa-chevron-right"></i>
+              <a href="/2019/06/16/21-Merge-Two-Sorted-Lists/" rel="prev" title="21.Merge Two Sorted Lists">
+                21.Merge Two Sorted Lists <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -635,7 +645,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#思路分析"><span class="nav-number">1.</span> <span class="nav-text">思路分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现细节"><span class="nav-number">2.</span> <span class="nav-text">实现细节</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码实现"><span class="nav-number">3.</span> <span class="nav-text">代码实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#approach1"><span class="nav-number">3.1.</span> <span class="nav-text">Approach1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#approach2"><span class="nav-number">3.2.</span> <span class="nav-text">Approach2</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#思路分析"><span class="nav-number">1.</span> <span class="nav-text">思路分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现细节"><span class="nav-number">2.</span> <span class="nav-text">实现细节</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码实现"><span class="nav-number">3.</span> <span class="nav-text">代码实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#approach-1"><span class="nav-number">3.1.</span> <span class="nav-text">Approach 1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#approach-2"><span class="nav-number">3.2.</span> <span class="nav-text">Approach 2</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -778,7 +788,7 @@
   
 
 
-  <script src="/js/next-boot.js?v=7.1.1"></script>
+  <script src="/js/next-boot.js?v=7.1.1"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
   
@@ -808,46 +818,6 @@
   
   
 
-  
-    
-      <script type="text/x-mathjax-config">
-  
-
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
-      processEscapes: true,
-      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    },
-    TeX: {
-      
-      equationNumbers: {
-        autoNumber: 'AMS'
-      }
-    }
-  });
-  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
-    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
-      if (data.display) {
-        var next = data.script.nextSibling;
-        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
-        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
-      }
-    });
-  });
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for (i = 0; i < all.length; i += 1) {
-      document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
-    }
-  });
-</script>
-<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-
-    
   
 
 
