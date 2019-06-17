@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.  思路分析   这道题的核心代码是ans.push_back(&amp;quot;(&amp;quot;+left+&amp;quot;)&amp;quot;+right)，这句代码可以覆盖所有的情况并且不会产生重复项。假">
+  <meta name="description" content="Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.  思路分析   这道题的核心代码是ans.push_back(&amp;quot;(&amp;quot;+left+&amp;quot;)&amp;quot;+right)，这句代码可以覆盖所有的情况并且不会产生重复项。做">
 <meta name="keywords" content="string,recursion">
 <meta property="og:type" content="article">
 <meta property="og:title" content="22.Generate Parentheses">
 <meta property="og:url" content="http://yoursite.com/2019/06/17/22-Generate-Parentheses/index.html">
 <meta property="og:site_name" content="Friday">
-<meta property="og:description" content="Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.  思路分析   这道题的核心代码是ans.push_back(&amp;quot;(&amp;quot;+left+&amp;quot;)&amp;quot;+right)，这句代码可以覆盖所有的情况并且不会产生重复项。假">
+<meta property="og:description" content="Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.  思路分析   这道题的核心代码是ans.push_back(&amp;quot;(&amp;quot;+left+&amp;quot;)&amp;quot;+right)，这句代码可以覆盖所有的情况并且不会产生重复项。做">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-17T14:55:40.286Z">
+<meta property="og:updated_time" content="2019-06-17T15:42:24.255Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="22.Generate Parentheses">
-<meta name="twitter:description" content="Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.  思路分析   这道题的核心代码是ans.push_back(&amp;quot;(&amp;quot;+left+&amp;quot;)&amp;quot;+right)，这句代码可以覆盖所有的情况并且不会产生重复项。假">
+<meta name="twitter:description" content="Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.  思路分析   这道题的核心代码是ans.push_back(&amp;quot;(&amp;quot;+left+&amp;quot;)&amp;quot;+right)，这句代码可以覆盖所有的情况并且不会产生重复项。做">
 
 
 
@@ -367,7 +367,7 @@
                 
               
 
-              <time title="Created: 2019-06-17 22:15:26 / Modified: 22:55:40" itemprop="dateCreated datePublished" datetime="2019-06-17T22:15:26+08:00">2019-06-17</time>
+              <time title="Created: 2019-06-17 22:15:26 / Modified: 23:42:24" itemprop="dateCreated datePublished" datetime="2019-06-17T22:15:26+08:00">2019-06-17</time>
             
 
             
@@ -428,7 +428,7 @@
 <p>Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.</p>
 </blockquote>
 <h2 id="思路分析">思路分析</h2>
-<p>  这道题的核心代码是<code>ans.push_back(&quot;(&quot;+left+&quot;)&quot;+right)</code>，这句代码可以覆盖所有的情况并且不会产生重复项。假设<span class="math inline">\(f(5)\)</span>表示所有<span class="math inline">\(5\)</span>个括号的集合，则一种情况是<span class="math inline">\(f(5)=(f(2))+f(2)\)</span>，而<span class="math inline">\(()+f(2)+f(2)\)</span>可以包括在<span class="math inline">\((f(0))+f(4)\)</span>中，<span class="math inline">\(f(2)+()+f(2)\)</span>可以包括在<span class="math inline">\((f(1))+f(3)\)</span>中。不会产生重复项可以用数学归纳法证明。</p>
+<p>  这道题的核心代码是<code>ans.push_back(&quot;(&quot;+left+&quot;)&quot;+right)</code>，这句代码可以覆盖所有的情况并且不会产生重复项。做一个简单的证明，设<span class="math inline">\(A_n=\{n对括号的合法字符串集合\}\)</span>，<span class="math inline">\(B_n=\{&#39;(s_i)s_{n-i-1}&#39;的集合\}\)</span>，其中<span class="math inline">\(s_i\)</span>表示<span class="math inline">\(A_i\)</span>中的一个元素。 可以证明，任何<span class="math inline">\(x\in A_n\)</span>，一定满足<span class="math inline">\(x\in B_n\)</span>，反之也显然成立。</p>
 <h2 id="实现细节">实现细节</h2>
 <p>  边界条件永远是实现细节里最需要注意的地方，本题在循环中需要将n-1分成两个数，因此n=1不是边界，0可以分解为0和0，只有n=0是边界。</p>
 <h2 id="代码实现">代码实现</h2>
