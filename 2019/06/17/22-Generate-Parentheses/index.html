@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="Given an input string (s) and a pattern (p), implement regular expression matching with support for &apos;.&apos; and &apos;&apos;. &apos;.&apos; Matches any single character. &apos;&apos; Matches zero or more of the preceding element.  思路">
-<meta name="keywords" content="dp,string">
+  <meta name="description" content="Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.  思路分析   这道题的核心代码是ans.push_back(&amp;quot;(&amp;quot;+left+&amp;quot;)&amp;quot;+right)，这句代码可以覆盖所有的情况并且不会产生重复项。假">
+<meta name="keywords" content="string,recursion">
 <meta property="og:type" content="article">
-<meta property="og:title" content="10.Regular Expression Matching">
-<meta property="og:url" content="http://yoursite.com/2019/05/16/10-Regular-Expression-Matching/index.html">
+<meta property="og:title" content="22.Generate Parentheses">
+<meta property="og:url" content="http://yoursite.com/2019/06/17/22-Generate-Parentheses/index.html">
 <meta property="og:site_name" content="Friday">
-<meta property="og:description" content="Given an input string (s) and a pattern (p), implement regular expression matching with support for &apos;.&apos; and &apos;&apos;. &apos;.&apos; Matches any single character. &apos;&apos; Matches zero or more of the preceding element.  思路">
+<meta property="og:description" content="Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.  思路分析   这道题的核心代码是ans.push_back(&amp;quot;(&amp;quot;+left+&amp;quot;)&amp;quot;+right)，这句代码可以覆盖所有的情况并且不会产生重复项。假">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-17T07:33:57.903Z">
+<meta property="og:updated_time" content="2019-06-17T14:55:40.286Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="10.Regular Expression Matching">
-<meta name="twitter:description" content="Given an input string (s) and a pattern (p), implement regular expression matching with support for &apos;.&apos; and &apos;&apos;. &apos;.&apos; Matches any single character. &apos;&apos; Matches zero or more of the preceding element.  思路">
+<meta name="twitter:title" content="22.Generate Parentheses">
+<meta name="twitter:description" content="Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.  思路分析   这道题的核心代码是ans.push_back(&amp;quot;(&amp;quot;+left+&amp;quot;)&amp;quot;+right)，这句代码可以覆盖所有的情况并且不会产生重复项。假">
 
 
 
@@ -115,7 +115,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/05/16/10-Regular-Expression-Matching/">
+  <link rel="canonical" href="http://yoursite.com/2019/06/17/22-Generate-Parentheses/">
 
 
 
@@ -125,7 +125,7 @@
   };
 </script>
 
-  <title>10.Regular Expression Matching | Friday</title>
+  <title>22.Generate Parentheses | Friday</title>
   
 
 
@@ -324,7 +324,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/16/10-Regular-Expression-Matching/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/17/22-Generate-Parentheses/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jarvis.Z">
@@ -341,7 +341,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">10.Regular Expression Matching
+          <h1 class="post-title" itemprop="name headline">22.Generate Parentheses
 
               
             
@@ -367,24 +367,12 @@
                 
               
 
-              <time title="Created: 2019-05-16 21:58:08" itemprop="dateCreated datePublished" datetime="2019-05-16T21:58:08+08:00">2019-05-16</time>
+              <time title="Created: 2019-06-17 22:15:26 / Modified: 22:55:40" itemprop="dateCreated datePublished" datetime="2019-06-17T22:15:26+08:00">2019-06-17</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-06-17 15:33:57" itemprop="dateModified" datetime="2019-06-17T15:33:57+08:00">2019-06-17</time>
               
             
           </span>
@@ -437,25 +425,17 @@
 
       
         <blockquote>
-<p>Given an input string (s) and a pattern (p), implement regular expression matching with support for '.' and '<em>'.<br> '.' Matches any single character.<br> '</em>' Matches zero or more of the preceding element.</p>
+<p>Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.</p>
 </blockquote>
 <h2 id="思路分析">思路分析</h2>
-<p>  使用动态规划的思想，状态方程<span class="math inline">\(dp(i, j)\)</span>表示<code>s[i:]</code>和<code>p[j:]</code>是否匹配，状态转移方程是本题最复杂的部分，当<code>p[j]=='*'</code>时，有两个条件：</p>
-<ol type="1">
-<li><code>dp[i][j+2]</code>，这个条件可以满足所有<code>*</code>表示0个字符的情况</li>
-<li><code>first_match &amp;&amp; dp[i+1][j]</code>，这个条件可以满足<code>*</code>表示一个或多个字符的情况</li>
-</ol>
-<p>两个条件进行取或操作，即可得出<span class="math inline">\(dp(i,j)\)</span>的值。</p>
+<p>  这道题的核心代码是<code>ans.push_back(&quot;(&quot;+left+&quot;)&quot;+right)</code>，这句代码可以覆盖所有的情况并且不会产生重复项。假设<span class="math inline">\(f(5)\)</span>表示所有<span class="math inline">\(5\)</span>个括号的集合，则一种情况是<span class="math inline">\(f(5)=(f(2))+f(2)\)</span>，而<span class="math inline">\(()+f(2)+f(2)\)</span>可以包括在<span class="math inline">\((f(0))+f(4)\)</span>中，<span class="math inline">\(f(2)+()+f(2)\)</span>可以包括在<span class="math inline">\((f(1))+f(3)\)</span>中。不会产生重复项可以用数学归纳法证明。</p>
 <h2 id="实现细节">实现细节</h2>
-<p>  本题有一个非常重要的细节是处理<code>s</code>或<code>p</code>为空的情况：</p>
-<ol type="1">
-<li>当<code>s</code>和<code>p</code>均为空的情况下，返回<code>true</code></li>
-<li>当<code>p</code>为空，<code>s</code>不为空的情况下，返回<code>false</code></li>
-<li>当<code>s</code>为空，<code>p</code>不为空的情况下，只有<code>p</code>为形如<code>a*b*c*.*</code>这种每个字母后面都跟随一个<code>*</code>的字符串才返回<code>true</code>，其他情况均返回<code>false</code></li>
-</ol>
-<p>这三种情况正好涉及了<span class="math inline">\(dp\)</span>函数的初始化问题，从这道题可以看出，在使用动态规划做字符串的问题时，<span class="math inline">\(dp\)</span>函数的范围应该为字符串的长度加一，这样可以正确的处理边界条件而不用特殊讨论。</p>
+<p>  边界条件永远是实现细节里最需要注意的地方，本题在循环中需要将n-1分成两个数，因此n=1不是边界，0可以分解为0和0，只有n=0是边界。</p>
 <h2 id="代码实现">代码实现</h2>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">isMatch</span><span class="params">(<span class="built_in">string</span> s, <span class="built_in">string</span> p)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = s.size(), m = p.size();</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt;&gt; dp(n+<span class="number">1</span>, <span class="built_in">vector</span>&lt;<span class="keyword">bool</span>&gt;(m+<span class="number">1</span>, <span class="literal">false</span>));</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) dp[i][m] = <span class="literal">false</span>;</span><br><span class="line">        dp[n][m] = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = m<span class="number">-1</span>; j &gt;= <span class="number">0</span>; j--) &#123;</span><br><span class="line">            dp[n][j] = (p[j] == <span class="string">'*'</span> || p[j+<span class="number">1</span>] == <span class="string">'*'</span>) &amp;&amp; dp[n][j+<span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = m<span class="number">-1</span>; j &gt;= <span class="number">0</span>; j--)&#123;</span><br><span class="line">            <span class="keyword">if</span>(p[j] == <span class="string">'*'</span>) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = n<span class="number">-1</span>; i &gt;= <span class="number">0</span>; i--)&#123;</span><br><span class="line">                <span class="keyword">bool</span> first_match = s[i] == p[j] || p[j] ==<span class="string">'.'</span>;</span><br><span class="line">                <span class="keyword">if</span>(p[j+<span class="number">1</span>] == <span class="string">'*'</span>)&#123;</span><br><span class="line">                    dp[i][j] = dp[i][j+<span class="number">2</span>] || (first_match &amp;&amp; (dp[i+<span class="number">1</span>][j+<span class="number">2</span>] || dp[i+<span class="number">1</span>][j]));</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    dp[i][j] = first_match &amp;&amp; dp[i+<span class="number">1</span>][j+<span class="number">1</span>];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="approach-1">Approach 1</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; generateParenthesis(<span class="keyword">int</span> n) &#123;</span><br><span class="line">        <span class="keyword">if</span>(n == <span class="number">0</span>) <span class="keyword">return</span> <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;(<span class="number">1</span>, <span class="string">""</span>);</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; ans;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">auto</span> left: generateParenthesis(i))&#123;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">auto</span> right: generateParenthesis(n<span class="number">-1</span>-i))&#123;</span><br><span class="line">                    ans.push_back(<span class="string">"("</span>+left+<span class="string">")"</span>+right);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="approach-2">Approach 2</h3>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; generateParenthesis(<span class="keyword">int</span> n) &#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&gt; dp(n+<span class="number">1</span>, <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;());</span><br><span class="line">        dp[<span class="number">0</span>].push_back(<span class="string">""</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; i; j++)&#123;</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">auto</span> left: dp[j])&#123;</span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">auto</span> right: dp[i<span class="number">-1</span>-j])&#123;</span><br><span class="line">                        dp[i].push_back(<span class="string">"("</span>+left+<span class="string">")"</span>+right);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[n];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -479,9 +459,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/dp/" rel="tag"># dp</a>
-          
             <a href="/tags/string/" rel="tag"># string</a>
+          
+            <a href="/tags/recursion/" rel="tag"># recursion</a>
           
         </div>
       
@@ -494,8 +474,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/15/9-Palindrome-Number/" rel="next" title="9.Palindrome Number">
-                <i class="fa fa-chevron-left"></i> 9.Palindrome Number
+              <a href="/2019/06/16/21-Merge-Two-Sorted-Lists/" rel="next" title="21.Merge Two Sorted Lists">
+                <i class="fa fa-chevron-left"></i> 21.Merge Two Sorted Lists
               </a>
             
           </div>
@@ -503,10 +483,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/05/16/11-Container-With-Most-Water/" rel="prev" title="11.Container With Most Water">
-                11.Container With Most Water <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -661,7 +637,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#思路分析"><span class="nav-number">1.</span> <span class="nav-text">思路分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现细节"><span class="nav-number">2.</span> <span class="nav-text">实现细节</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码实现"><span class="nav-number">3.</span> <span class="nav-text">代码实现</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#思路分析"><span class="nav-number">1.</span> <span class="nav-text">思路分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现细节"><span class="nav-number">2.</span> <span class="nav-text">实现细节</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码实现"><span class="nav-number">3.</span> <span class="nav-text">代码实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#approach-1"><span class="nav-number">3.1.</span> <span class="nav-text">Approach 1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#approach-2"><span class="nav-number">3.2.</span> <span class="nav-text">Approach 2</span></a></li></ol></li></ol></div>
             
 
           </div>
