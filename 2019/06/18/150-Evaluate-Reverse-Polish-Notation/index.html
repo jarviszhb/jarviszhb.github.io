@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="Given an array nums of n integers, are there elements a, b, c in nums such that a + b + c = 0? Find all unique triplets in the array which gives the sum of zero. Note:The solution set must not contai">
-<meta name="keywords" content="array">
+  <meta name="description" content="Evaluate the value of an arithmetic expression in Reverse Polish Notation.Valid operators are +, -, *, /. Each operand may be an integer or another expression.  思路分析   逆波兰表示法，又称为后缀表示法，是一种不需要括号的一种四则运算">
+<meta name="keywords" content="stack">
 <meta property="og:type" content="article">
-<meta property="og:title" content="15.3Sum">
-<meta property="og:url" content="http://yoursite.com/2019/05/20/15-3Sum/index.html">
+<meta property="og:title" content="150.Evaluate Reverse Polish Notation">
+<meta property="og:url" content="http://yoursite.com/2019/06/18/150-Evaluate-Reverse-Polish-Notation/index.html">
 <meta property="og:site_name" content="Friday">
-<meta property="og:description" content="Given an array nums of n integers, are there elements a, b, c in nums such that a + b + c = 0? Find all unique triplets in the array which gives the sum of zero. Note:The solution set must not contai">
+<meta property="og:description" content="Evaluate the value of an arithmetic expression in Reverse Polish Notation.Valid operators are +, -, *, /. Each operand may be an integer or another expression.  思路分析   逆波兰表示法，又称为后缀表示法，是一种不需要括号的一种四则运算">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-16T14:09:48.126Z">
+<meta property="og:updated_time" content="2019-06-18T14:21:16.583Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="15.3Sum">
-<meta name="twitter:description" content="Given an array nums of n integers, are there elements a, b, c in nums such that a + b + c = 0? Find all unique triplets in the array which gives the sum of zero. Note:The solution set must not contai">
+<meta name="twitter:title" content="150.Evaluate Reverse Polish Notation">
+<meta name="twitter:description" content="Evaluate the value of an arithmetic expression in Reverse Polish Notation.Valid operators are +, -, *, /. Each operand may be an integer or another expression.  思路分析   逆波兰表示法，又称为后缀表示法，是一种不需要括号的一种四则运算">
 
 
 
@@ -115,7 +115,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/05/20/15-3Sum/">
+  <link rel="canonical" href="http://yoursite.com/2019/06/18/150-Evaluate-Reverse-Polish-Notation/">
 
 
 
@@ -125,7 +125,7 @@
   };
 </script>
 
-  <title>15.3Sum | Friday</title>
+  <title>150.Evaluate Reverse Polish Notation | Friday</title>
   
 
 
@@ -324,7 +324,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/20/15-3Sum/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/18/150-Evaluate-Reverse-Polish-Notation/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jarvis.Z">
@@ -341,7 +341,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">15.3Sum
+          <h1 class="post-title" itemprop="name headline">150.Evaluate Reverse Polish Notation
 
               
             
@@ -367,24 +367,12 @@
                 
               
 
-              <time title="Created: 2019-05-20 19:48:24" itemprop="dateCreated datePublished" datetime="2019-05-20T19:48:24+08:00">2019-05-20</time>
+              <time title="Created: 2019-06-18 20:11:39 / Modified: 22:21:16" itemprop="dateCreated datePublished" datetime="2019-06-18T20:11:39+08:00">2019-06-18</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2019-06-16 22:09:48" itemprop="dateModified" datetime="2019-06-16T22:09:48+08:00">2019-06-16</time>
               
             
           </span>
@@ -437,18 +425,17 @@
 
       
         <blockquote>
-<p>Given an array nums of n integers, are there elements a, b, c in nums such that a + b + c = 0? Find all unique triplets in the array which gives the sum of zero.<br> <strong>Note:</strong>The solution set must not contain duplicate triplets.</p>
+<p>Evaluate the value of an arithmetic expression in Reverse Polish Notation.<br>Valid operators are +, -, *, /. Each operand may be an integer or another expression.</p>
 </blockquote>
 <h2 id="思路分析">思路分析</h2>
-<p>  由于数组中的元素并不唯一，因此不能使用哈希表来做这道题，所以如果不对数组进行排序，本题的时间复杂度就会达到<span class="math inline">\(O(n^3)\)</span>。因此先对数组进行排序，然后使用夹逼的思想寻找目标即可。</p>
+<p>  逆波兰表示法，又称为后缀表示法，是一种不需要括号的一种四则运算表示法。比如：9 3 1 - 3 * + 10 2 / + ，就是一种后缀表示法。计算方法就使用栈，遇到数字就入栈，遇到符号就弹出栈顶的两个数字并将这两个数字的计算结果压入栈中。</p>
 <h2 id="实现细节">实现细节</h2>
 <ol type="1">
-<li><code>sort(nums.begin(), nums.end());</code></li>
-<li><code>triplet.clear();</code></li>
-<li>注意处理重复元素</li>
+<li>字符串转整型函数<code>stoi()</code></li>
+<li>整型函数转字符串<code>to_string()</code></li>
 </ol>
 <h2 id="代码实现">代码实现</h2>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; threeSum(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums) &#123;</span><br><span class="line">        <span class="keyword">int</span> n = nums.size();</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; triplet(<span class="number">3</span>);</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt; ans;</span><br><span class="line">        sort(nums.begin(), nums.end());</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> target = -nums[i];</span><br><span class="line">            <span class="keyword">int</span> front = i + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">int</span> rear = n - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">while</span>(front &lt; rear)&#123;</span><br><span class="line">                <span class="keyword">int</span> sum = nums[front] + nums[rear];</span><br><span class="line">                <span class="keyword">if</span>(sum &gt; target)&#123;</span><br><span class="line">                    rear -= <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(sum &lt; target)&#123;</span><br><span class="line">                    front += <span class="number">1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    triplet.clear();</span><br><span class="line">                    triplet.push_back(nums[i]);</span><br><span class="line">                    triplet.push_back(nums[front]);</span><br><span class="line">                    triplet.push_back(nums[rear]);</span><br><span class="line">                    ans.push_back(triplet);</span><br><span class="line">                    <span class="comment">// Processing duplicates of Number 2</span></span><br><span class="line">                    <span class="keyword">while</span>(front &lt; rear &amp;&amp; triplet[<span class="number">1</span>] == nums[front])&#123;</span><br><span class="line">                        front += <span class="number">1</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="comment">// Processing duplicates of Number 3</span></span><br><span class="line">                    <span class="keyword">while</span>(front &lt; rear &amp;&amp; triplet[<span class="number">2</span>] == nums[rear])&#123;</span><br><span class="line">                        rear -= <span class="number">1</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// Processing duplicates of Number 1</span></span><br><span class="line">            <span class="keyword">while</span>(i+<span class="number">1</span> &lt; n &amp;&amp; nums[i+<span class="number">1</span>] == nums[i])&#123;</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">evalRPN</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&amp; tokens)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">stack</span>&lt;<span class="keyword">int</span>&gt; stk;</span><br><span class="line">        <span class="keyword">int</span> number;</span><br><span class="line">        <span class="built_in">string</span> symbols = <span class="string">"+-*/"</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> token: tokens)&#123;</span><br><span class="line">            <span class="keyword">if</span>(symbols.find(token) != <span class="built_in">string</span>::npos)&#123;</span><br><span class="line">                <span class="keyword">int</span> num2 = stk.top();</span><br><span class="line">                stk.pop();</span><br><span class="line">                <span class="keyword">int</span> num1 = stk.top();</span><br><span class="line">                stk.pop();</span><br><span class="line">                <span class="keyword">if</span>(token == <span class="string">"+"</span>) stk.push(num1+num2);</span><br><span class="line">                <span class="keyword">if</span>(token == <span class="string">"-"</span>) stk.push(num1-num2);</span><br><span class="line">                <span class="keyword">if</span>(token == <span class="string">"*"</span>) stk.push(num1*num2);</span><br><span class="line">                <span class="keyword">if</span>(token == <span class="string">"/"</span>) stk.push(num1/num2);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                number = stoi(token);</span><br><span class="line">                stk.push(number);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> stk.top();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -472,7 +459,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/array/" rel="tag"># array</a>
+            <a href="/tags/stack/" rel="tag"># stack</a>
           
         </div>
       
@@ -485,8 +472,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/05/20/14-Longest-Common-Prefix/" rel="next" title="14.Longest Common Prefix">
-                <i class="fa fa-chevron-left"></i> 14.Longest Common Prefix
+              <a href="/2019/06/17/22-Generate-Parentheses/" rel="next" title="22.Generate Parentheses">
+                <i class="fa fa-chevron-left"></i> 22.Generate Parentheses
               </a>
             
           </div>
@@ -495,8 +482,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/05/20/16-3Sum-Closest/" rel="prev" title="16.3Sum Closest">
-                16.3Sum Closest <i class="fa fa-chevron-right"></i>
+              <a href="/2019/06/19/227-Basic-Calculator-II/" rel="prev" title="227.Basic Calculator II">
+                227.Basic Calculator II <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -797,7 +784,7 @@
   
 
 
-  <script src="/js/next-boot.js?v=7.1.1"></script>
+  <script src="/js/next-boot.js?v=7.1.1"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
   
@@ -827,46 +814,6 @@
   
   
 
-  
-    
-      <script type="text/x-mathjax-config">
-  
-
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
-      processEscapes: true,
-      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    },
-    TeX: {
-      
-      equationNumbers: {
-        autoNumber: 'AMS'
-      }
-    }
-  });
-  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
-    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
-      if (data.display) {
-        var next = data.script.nextSibling;
-        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
-        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
-      }
-    });
-  });
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for (i = 0; i < all.length; i += 1) {
-      document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
-    }
-  });
-</script>
-<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-
-    
   
 
 
