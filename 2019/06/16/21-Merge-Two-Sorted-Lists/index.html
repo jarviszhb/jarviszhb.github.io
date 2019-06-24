@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.  思路分析   判断l1和l2节点值得大小，小的节点加入新链表。 实现细节  不需要对每一个节点都重新生成，只需要">
+  <meta name="description" content="Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.  &amp;#x601D;&amp;#x8DEF;&amp;#x5206;&amp;#x6790; &amp;#x2003;&amp;#x2003;&amp;#x5224">
 <meta name="keywords" content="linked list">
 <meta property="og:type" content="article">
 <meta property="og:title" content="21.Merge Two Sorted Lists">
 <meta property="og:url" content="http://yoursite.com/2019/06/16/21-Merge-Two-Sorted-Lists/index.html">
 <meta property="og:site_name" content="Friday">
-<meta property="og:description" content="Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.  思路分析   判断l1和l2节点值得大小，小的节点加入新链表。 实现细节  不需要对每一个节点都重新生成，只需要">
+<meta property="og:description" content="Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.  &amp;#x601D;&amp;#x8DEF;&amp;#x5206;&amp;#x6790; &amp;#x2003;&amp;#x2003;&amp;#x5224">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2019-06-16T15:27:19.816Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="21.Merge Two Sorted Lists">
-<meta name="twitter:description" content="Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.  思路分析   判断l1和l2节点值得大小，小的节点加入新链表。 实现细节  不需要对每一个节点都重新生成，只需要">
+<meta name="twitter:description" content="Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.  &amp;#x601D;&amp;#x8DEF;&amp;#x5206;&amp;#x6790; &amp;#x2003;&amp;#x2003;&amp;#x5224">
 
 
 
@@ -427,16 +427,16 @@
         <blockquote>
 <p>Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.</p>
 </blockquote>
-<h2 id="思路分析">思路分析</h2>
-<p>  判断<code>l1</code>和<code>l2</code>节点值得大小，小的节点加入新链表。</p>
-<h2 id="实现细节">实现细节</h2>
+<h2 id="&#x601D;&#x8DEF;&#x5206;&#x6790;">&#x601D;&#x8DEF;&#x5206;&#x6790;</h2>
+<p>&#x2003;&#x2003;&#x5224;&#x65AD;<code>l1</code>&#x548C;<code>l2</code>&#x8282;&#x70B9;&#x503C;&#x5F97;&#x5927;&#x5C0F;&#xFF0C;&#x5C0F;&#x7684;&#x8282;&#x70B9;&#x52A0;&#x5165;&#x65B0;&#x94FE;&#x8868;&#x3002;</p>
+<h2 id="&#x5B9E;&#x73B0;&#x7EC6;&#x8282;">&#x5B9E;&#x73B0;&#x7EC6;&#x8282;</h2>
 <ol type="1">
-<li>不需要对每一个节点都重新生成，只需要对节点的关系重新拍排列即可，<code>target</code>和<code>l1</code>、<code>l2</code>指针的移动先后顺序十分关键</li>
-<li>循环条件为<code>l1 &amp;&amp; l2</code>，加入l1已经为<code>null</code>了，只需要将<code>l2</code>剩余的节点一次性加入链表尾部即可，不需要对每一个节点进行操作</li>
-<li>当需要对剩余节点进行操作时，用<code>l1 || l2</code>，当不需要对剩余节点进行操作时，用<code>l1 &amp;&amp; l2</code></li>
+<li>&#x4E0D;&#x9700;&#x8981;&#x5BF9;&#x6BCF;&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#x90FD;&#x91CD;&#x65B0;&#x751F;&#x6210;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x5BF9;&#x8282;&#x70B9;&#x7684;&#x5173;&#x7CFB;&#x91CD;&#x65B0;&#x62CD;&#x6392;&#x5217;&#x5373;&#x53EF;&#xFF0C;<code>target</code>&#x548C;<code>l1</code>&#x3001;<code>l2</code>&#x6307;&#x9488;&#x7684;&#x79FB;&#x52A8;&#x5148;&#x540E;&#x987A;&#x5E8F;&#x5341;&#x5206;&#x5173;&#x952E;</li>
+<li>&#x5FAA;&#x73AF;&#x6761;&#x4EF6;&#x4E3A;<code>l1 &amp;&amp; l2</code>&#xFF0C;&#x52A0;&#x5165;l1&#x5DF2;&#x7ECF;&#x4E3A;<code>null</code>&#x4E86;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x5C06;<code>l2</code>&#x5269;&#x4F59;&#x7684;&#x8282;&#x70B9;&#x4E00;&#x6B21;&#x6027;&#x52A0;&#x5165;&#x94FE;&#x8868;&#x5C3E;&#x90E8;&#x5373;&#x53EF;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x5BF9;&#x6BCF;&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;</li>
+<li>&#x5F53;&#x9700;&#x8981;&#x5BF9;&#x5269;&#x4F59;&#x8282;&#x70B9;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#x65F6;&#xFF0C;&#x7528;<code>l1 || l2</code>&#xFF0C;&#x5F53;&#x4E0D;&#x9700;&#x8981;&#x5BF9;&#x5269;&#x4F59;&#x8282;&#x70B9;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#x65F6;&#xFF0C;&#x7528;<code>l1 &amp;&amp; l2</code></li>
 </ol>
-<h2 id="代码实现">代码实现</h2>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">mergeTwoLists</span><span class="params">(ListNode* l1, ListNode* l2)</span> </span>&#123;</span><br><span class="line">        ListNode* target = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">        ListNode* head = target;</span><br><span class="line">        <span class="keyword">while</span>(l1 &amp;&amp; l2)&#123;</span><br><span class="line">            <span class="keyword">if</span>(l1-&gt;val &gt;= l2-&gt;val)&#123;</span><br><span class="line">                target-&gt;next = l2;</span><br><span class="line">                l2 = l2-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                target-&gt;next = l1;</span><br><span class="line">                l1 = l1-&gt;next;</span><br><span class="line">            &#125;</span><br><span class="line">            target = target-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        target-&gt;next = l1 ? l1 : l2;</span><br><span class="line">        <span class="keyword">return</span> head-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="&#x4EE3;&#x7801;&#x5B9E;&#x73B0;">&#x4EE3;&#x7801;&#x5B9E;&#x73B0;</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> {</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">mergeTwoLists</span><span class="params">(ListNode* l1, ListNode* l2)</span> </span>{</span><br><span class="line">        ListNode* target = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">        ListNode* head = target;</span><br><span class="line">        <span class="keyword">while</span>(l1 &amp;&amp; l2){</span><br><span class="line">            <span class="keyword">if</span>(l1-&gt;val &gt;= l2-&gt;val){</span><br><span class="line">                target-&gt;next = l2;</span><br><span class="line">                l2 = l2-&gt;next;</span><br><span class="line">            }</span><br><span class="line">            <span class="keyword">else</span>{</span><br><span class="line">                target-&gt;next = l1;</span><br><span class="line">                l1 = l1-&gt;next;</span><br><span class="line">            }</span><br><span class="line">            target = target-&gt;next;</span><br><span class="line">        }</span><br><span class="line">        target-&gt;next = l1 ? l1 : l2;</span><br><span class="line">        <span class="keyword">return</span> head-&gt;next;</span><br><span class="line">    }</span><br><span class="line">};</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -554,7 +554,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-count">21</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>

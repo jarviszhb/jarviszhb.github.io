@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="Given a linked list, remove the n-th node from the end of list and return its head.  思路分析   采用curr和target两个指针，并且两个指针始终相差n个节点，因此当curr指针到达最后一个节点的时候，target指针就是要删除节点的上一个节点。 实现细节  在链表的前面加入一个dummy节点作为头指针，这">
+  <meta name="description" content="Given a linked list, remove the n-th node from the end of list and return its head.  &amp;#x601D;&amp;#x8DEF;&amp;#x5206;&amp;#x6790; &amp;#x2003;&amp;#x2003;&amp;#x91C7;&amp;#x7528;curr&amp;#x548C;target&amp;#x4E24;&amp;#x4E2A;&amp;#x6307;&amp;#x9488">
 <meta name="keywords" content="linked list">
 <meta property="og:type" content="article">
 <meta property="og:title" content="19.Remove Nth Node From End of List">
 <meta property="og:url" content="http://yoursite.com/2019/06/16/19-Remove-Nth-Node-From-End-of-List/index.html">
 <meta property="og:site_name" content="Friday">
-<meta property="og:description" content="Given a linked list, remove the n-th node from the end of list and return its head.  思路分析   采用curr和target两个指针，并且两个指针始终相差n个节点，因此当curr指针到达最后一个节点的时候，target指针就是要删除节点的上一个节点。 实现细节  在链表的前面加入一个dummy节点作为头指针，这">
+<meta property="og:description" content="Given a linked list, remove the n-th node from the end of list and return its head.  &amp;#x601D;&amp;#x8DEF;&amp;#x5206;&amp;#x6790; &amp;#x2003;&amp;#x2003;&amp;#x91C7;&amp;#x7528;curr&amp;#x548C;target&amp;#x4E24;&amp;#x4E2A;&amp;#x6307;&amp;#x9488">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2019-06-16T14:22:50.456Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="19.Remove Nth Node From End of List">
-<meta name="twitter:description" content="Given a linked list, remove the n-th node from the end of list and return its head.  思路分析   采用curr和target两个指针，并且两个指针始终相差n个节点，因此当curr指针到达最后一个节点的时候，target指针就是要删除节点的上一个节点。 实现细节  在链表的前面加入一个dummy节点作为头指针，这">
+<meta name="twitter:description" content="Given a linked list, remove the n-th node from the end of list and return its head.  &amp;#x601D;&amp;#x8DEF;&amp;#x5206;&amp;#x6790; &amp;#x2003;&amp;#x2003;&amp;#x91C7;&amp;#x7528;curr&amp;#x548C;target&amp;#x4E24;&amp;#x4E2A;&amp;#x6307;&amp;#x9488">
 
 
 
@@ -427,15 +427,15 @@
         <blockquote>
 <p>Given a linked list, remove the n-th node from the end of list and return its head.</p>
 </blockquote>
-<h2 id="思路分析">思路分析</h2>
-<p>  采用<code>curr</code>和<code>target</code>两个指针，并且两个指针始终相差n个节点，因此当<code>curr</code>指针到达最后一个节点的时候，<code>target</code>指针就是要删除节点的上一个节点。</p>
-<h2 id="实现细节">实现细节</h2>
+<h2 id="&#x601D;&#x8DEF;&#x5206;&#x6790;">&#x601D;&#x8DEF;&#x5206;&#x6790;</h2>
+<p>&#x2003;&#x2003;&#x91C7;&#x7528;<code>curr</code>&#x548C;<code>target</code>&#x4E24;&#x4E2A;&#x6307;&#x9488;&#xFF0C;&#x5E76;&#x4E14;&#x4E24;&#x4E2A;&#x6307;&#x9488;&#x59CB;&#x7EC8;&#x76F8;&#x5DEE;n&#x4E2A;&#x8282;&#x70B9;&#xFF0C;&#x56E0;&#x6B64;&#x5F53;<code>curr</code>&#x6307;&#x9488;&#x5230;&#x8FBE;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#x7684;&#x65F6;&#x5019;&#xFF0C;<code>target</code>&#x6307;&#x9488;&#x5C31;&#x662F;&#x8981;&#x5220;&#x9664;&#x8282;&#x70B9;&#x7684;&#x4E0A;&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#x3002;</p>
+<h2 id="&#x5B9E;&#x73B0;&#x7EC6;&#x8282;">&#x5B9E;&#x73B0;&#x7EC6;&#x8282;</h2>
 <ol type="1">
-<li>在链表的前面加入一个<code>dummy</code>节点作为头指针，这样做的好处是可以避免一些边界条件的判定。</li>
+<li>&#x5728;&#x94FE;&#x8868;&#x7684;&#x524D;&#x9762;&#x52A0;&#x5165;&#x4E00;&#x4E2A;<code>dummy</code>&#x8282;&#x70B9;&#x4F5C;&#x4E3A;&#x5934;&#x6307;&#x9488;&#xFF0C;&#x8FD9;&#x6837;&#x505A;&#x7684;&#x597D;&#x5904;&#x662F;&#x53EF;&#x4EE5;&#x907F;&#x514D;&#x4E00;&#x4E9B;&#x8FB9;&#x754C;&#x6761;&#x4EF6;&#x7684;&#x5224;&#x5B9A;&#x3002;</li>
 <li><code>ListNode* dummy = new ListNode(0);</code></li>
 </ol>
-<h2 id="代码实现">代码实现</h2>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">removeNthFromEnd</span><span class="params">(ListNode* head, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        ListNode* dummy = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">        dummy-&gt;next = head;</span><br><span class="line">        ListNode* curr = dummy;</span><br><span class="line">        ListNode* target = dummy;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">            curr = curr-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(curr-&gt;next)&#123;</span><br><span class="line">            curr = curr-&gt;next;</span><br><span class="line">            target = target-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        target-&gt;next = target-&gt;next-&gt;next;</span><br><span class="line">        <span class="keyword">return</span> dummy-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="&#x4EE3;&#x7801;&#x5B9E;&#x73B0;">&#x4EE3;&#x7801;&#x5B9E;&#x73B0;</h2>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> {</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">removeNthFromEnd</span><span class="params">(ListNode* head, <span class="keyword">int</span> n)</span> </span>{</span><br><span class="line">        ListNode* dummy = <span class="keyword">new</span> ListNode(<span class="number">0</span>);</span><br><span class="line">        dummy-&gt;next = head;</span><br><span class="line">        ListNode* curr = dummy;</span><br><span class="line">        ListNode* target = dummy;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++){</span><br><span class="line">            curr = curr-&gt;next;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">while</span>(curr-&gt;next){</span><br><span class="line">            curr = curr-&gt;next;</span><br><span class="line">            target = target-&gt;next;</span><br><span class="line">        }</span><br><span class="line">        target-&gt;next = target-&gt;next-&gt;next;</span><br><span class="line">        <span class="keyword">return</span> dummy-&gt;next;</span><br><span class="line">    }</span><br><span class="line">};</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -553,7 +553,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">20</span>
+                    <span class="site-state-item-count">21</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
