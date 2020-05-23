@@ -96,18 +96,18 @@
 
 
 
-  <meta name="description" content="Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.  &amp;#x601D;&amp;#x8DEF;&amp;#x5206;&amp;#x6790; &amp;#x2003;&amp;#x2003;&amp;#x8FD9;&amp;#x9053;&amp;#x9898;&amp;#x7684;&amp;#x6838;&amp;#x5F">
-<meta name="keywords" content="string,recursion">
+  <meta name="description" content="Given preorder and inorder traversal of a tree, construct the binary tree. Note: You may assume that duplicates do not exist in the tree.  &amp;#x601D;&amp;#x8DEF;&amp;#x5206;&amp;#x6790; &amp;#x2003;&amp;#x2003;&amp;#x4F7F;&amp;#x">
+<meta name="keywords" content="tree">
 <meta property="og:type" content="article">
-<meta property="og:title" content="22.Generate Parentheses">
-<meta property="og:url" content="http://yoursite.com/2019/06/17/22-Generate-Parentheses/index.html">
+<meta property="og:title" content="105.Construct Binary Tree from Preorder and Inorder Traversal">
+<meta property="og:url" content="http://yoursite.com/2019/07/02/105-Construct-Binary-Tree-from-Preorder-and-Inorder-Traversal/index.html">
 <meta property="og:site_name" content="Friday">
-<meta property="og:description" content="Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.  &amp;#x601D;&amp;#x8DEF;&amp;#x5206;&amp;#x6790; &amp;#x2003;&amp;#x2003;&amp;#x8FD9;&amp;#x9053;&amp;#x9898;&amp;#x7684;&amp;#x6838;&amp;#x5F">
+<meta property="og:description" content="Given preorder and inorder traversal of a tree, construct the binary tree. Note: You may assume that duplicates do not exist in the tree.  &amp;#x601D;&amp;#x8DEF;&amp;#x5206;&amp;#x6790; &amp;#x2003;&amp;#x2003;&amp;#x4F7F;&amp;#x">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-17T15:47:28.034Z">
+<meta property="og:updated_time" content="2019-07-02T03:28:36.330Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="22.Generate Parentheses">
-<meta name="twitter:description" content="Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.  &amp;#x601D;&amp;#x8DEF;&amp;#x5206;&amp;#x6790; &amp;#x2003;&amp;#x2003;&amp;#x8FD9;&amp;#x9053;&amp;#x9898;&amp;#x7684;&amp;#x6838;&amp;#x5F">
+<meta name="twitter:title" content="105.Construct Binary Tree from Preorder and Inorder Traversal">
+<meta name="twitter:description" content="Given preorder and inorder traversal of a tree, construct the binary tree. Note: You may assume that duplicates do not exist in the tree.  &amp;#x601D;&amp;#x8DEF;&amp;#x5206;&amp;#x6790; &amp;#x2003;&amp;#x2003;&amp;#x4F7F;&amp;#x">
 
 
 
@@ -115,7 +115,7 @@
 
   
   
-  <link rel="canonical" href="http://yoursite.com/2019/06/17/22-Generate-Parentheses/">
+  <link rel="canonical" href="http://yoursite.com/2019/07/02/105-Construct-Binary-Tree-from-Preorder-and-Inorder-Traversal/">
 
 
 
@@ -125,7 +125,7 @@
   };
 </script>
 
-  <title>22.Generate Parentheses | Friday</title>
+  <title>105.Construct Binary Tree from Preorder and Inorder Traversal | Friday</title>
   
 
 
@@ -324,7 +324,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/17/22-Generate-Parentheses/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/02/105-Construct-Binary-Tree-from-Preorder-and-Inorder-Traversal/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jarvis.Z">
@@ -341,7 +341,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">22.Generate Parentheses
+          <h1 class="post-title" itemprop="name headline">105.Construct Binary Tree from Preorder and Inorder Traversal
 
               
             
@@ -367,7 +367,7 @@
                 
               
 
-              <time title="Created: 2019-06-17 22:15:26 / Modified: 23:47:28" itemprop="dateCreated datePublished" datetime="2019-06-17T22:15:26+08:00">2019-06-17</time>
+              <time title="Created: 2019-07-02 10:54:53 / Modified: 11:28:36" itemprop="dateCreated datePublished" datetime="2019-07-02T10:54:53+08:00">2019-07-02</time>
             
 
             
@@ -425,17 +425,21 @@
 
       
         <blockquote>
-<p>Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.</p>
+<p>Given preorder and inorder traversal of a tree, construct the binary tree.<br> <strong>Note</strong>: You may assume that duplicates do not exist in the tree.</p>
 </blockquote>
 <h2 id="&#x601D;&#x8DEF;&#x5206;&#x6790;">&#x601D;&#x8DEF;&#x5206;&#x6790;</h2>
-<p>&#x2003;&#x2003;&#x8FD9;&#x9053;&#x9898;&#x7684;&#x6838;&#x5FC3;&#x4EE3;&#x7801;&#x662F;<code>ans.push_back(&quot;(&quot;+left+&quot;)&quot;+right)</code>&#xFF0C;&#x8FD9;&#x53E5;&#x4EE3;&#x7801;&#x53EF;&#x4EE5;&#x8986;&#x76D6;&#x6240;&#x6709;&#x7684;&#x60C5;&#x51B5;&#x5E76;&#x4E14;&#x4E0D;&#x4F1A;&#x4EA7;&#x751F;&#x91CD;&#x590D;&#x9879;&#x3002;&#x505A;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x8BC1;&#x660E;&#xFF0C;&#x8BBE;<span class="math inline">\(A_n=\{n&#x5BF9;&#x62EC;&#x53F7;&#x7684;&#x5408;&#x6CD5;&#x5B57;&#x7B26;&#x4E32;&#x96C6;&#x5408;\}\)</span>&#xFF0C;<span class="math inline">\(B_n=\{&#x5B57;&#x7B26;&#x4E32;(s_i)s_{n-i-1}&#x7684;&#x96C6;&#x5408;\}\)</span>&#xFF0C;&#x5176;&#x4E2D;<span class="math inline">\(s_i\)</span>&#x8868;&#x793A;<span class="math inline">\(A_i\)</span>&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x3002; &#x53EF;&#x4EE5;&#x8BC1;&#x660E;&#xFF0C;&#x4EFB;&#x4F55;<span class="math inline">\(x\in A_n\)</span>&#xFF0C;&#x4E00;&#x5B9A;&#x6EE1;&#x8DB3;<span class="math inline">\(x\in B_n\)</span>&#xFF0C;&#x53CD;&#x4E4B;&#x4E5F;&#x663E;&#x7136;&#x6210;&#x7ACB;&#x3002;</p>
+<p>&#x2003;&#x2003;&#x4F7F;&#x7528;&#x9012;&#x5F52;&#x7684;&#x601D;&#x60F3;&#xFF0C;&#x5206;&#x522B;&#x6784;&#x9020;&#x5DE6;&#x5B50;&#x6811;&#x548C;&#x53F3;&#x5B50;&#x6811;&#xFF0C;&#x7531;&#x4E8E;&#x9898;&#x76EE;&#x7ED9;&#x7684;&#x51FD;&#x6570;&#x53C2;&#x6570;&#x5217;&#x8868;&#x662F;&#x4E24;&#x4E2A;<code>vector</code>&#xFF0C;&#x5982;&#x679C;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x539F;&#x51FD;&#x6570;&#x8FDB;&#x884C;&#x9012;&#x5F52;&#x64CD;&#x4F5C;&#xFF0C;&#x9700;&#x8981;&#x9891;&#x7E41;&#x521D;&#x59CB;&#x5316;&#x65B0;&#x7684;<code>vector</code>&#xFF0C;&#x8FD9;&#x6837;&#x7A0B;&#x5E8F;&#x7684;&#x8FD0;&#x884C;&#x65F6;&#x95F4;&#x4F1A;&#x5927;&#x5927;&#x589E;&#x52A0;&#x3002;&#x5176;&#x5B9E;&#x6211;&#x4EEC;&#x5E76;&#x6CA1;&#x6709;&#x5BF9;&#x539F;<code>vector</code>&#x8FDB;&#x884C;&#x8FC7;&#x591A;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x53EA;&#x662F;&#x5C06;&#x5176;&#x4E2D;&#x7684;&#x8FDE;&#x7EED;&#x7684;&#x4E00;&#x6BB5;&#x8FDB;&#x884C;&#x622A;&#x53D6;&#xFF0C;&#x56E0;&#x6B64;&#xFF0C;&#x76F4;&#x63A5;&#x5BF9;&#x8FED;&#x4EE3;&#x5668;&#x64CD;&#x4F5C;&#x6548;&#x679C;&#x53EF;&#x80FD;&#x66F4;&#x597D;&#x3002;&#x53E6;&#x4E00;&#x65B9;&#x9762;&#xFF0C;<code>find()</code>&#x51FD;&#x6570;&#x4E5F;&#x4F1A;&#x6BD4;&#x8F83;&#x8017;&#x65F6;&#xFF0C;&#x56E0;&#x6B64;&#x6539;&#x7528;&#x54C8;&#x5E0C;&#x8868;&#x6765;&#x50A8;&#x5B58;<code>inorder</code>&#x7684;&#x952E;&#x503C;&#x5BF9;&#x53EF;&#x4EE5;&#x8FDB;&#x4E00;&#x6B65;&#x8282;&#x7701;&#x65F6;&#x95F4;&#x3002;<br> &#x2003;&#x2003;&#x8FED;&#x4EE3;&#x7248;&#x672C;&#x7684;&#x7A0B;&#x5E8F;&#x6709;&#x65F6;&#x95F4;&#x518D;&#x5199;&#xFF0C;&#x57FA;&#x672C;&#x601D;&#x60F3;&#x662F;&#x5C06;&#x6784;&#x9020;&#x597D;&#x7684;&#x5B50;&#x6811;&#x538B;&#x5165;&#x6808;&#x4E2D;&#x3002;</p>
 <h2 id="&#x5B9E;&#x73B0;&#x7EC6;&#x8282;">&#x5B9E;&#x73B0;&#x7EC6;&#x8282;</h2>
-<p>&#x2003;&#x2003;&#x8FB9;&#x754C;&#x6761;&#x4EF6;&#x6C38;&#x8FDC;&#x662F;&#x5B9E;&#x73B0;&#x7EC6;&#x8282;&#x91CC;&#x6700;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x5730;&#x65B9;&#xFF0C;&#x672C;&#x9898;&#x5728;&#x5FAA;&#x73AF;&#x4E2D;&#x9700;&#x8981;&#x5C06;n-1&#x5206;&#x6210;&#x4E24;&#x4E2A;&#x6570;&#xFF0C;&#x56E0;&#x6B64;n=1&#x4E0D;&#x662F;&#x8FB9;&#x754C;&#xFF0C;0&#x53EF;&#x4EE5;&#x5206;&#x89E3;&#x4E3A;0&#x548C;0&#xFF0C;&#x53EA;&#x6709;n=0&#x662F;&#x8FB9;&#x754C;&#x3002;</p>
+<ol type="1">
+<li>&#x4F7F;&#x7528;<code>vector&lt;int&gt; left_inorder(inorder.begin(), index)</code>&#x5BF9;<code>vector</code>&#x8FDB;&#x884C;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;<code>vector</code>&#x7684;&#x5206;&#x5272;&#x3002;</li>
+<li>&#x91CD;&#x8F7D;&#xFF1A;&#x51FD;&#x6570;&#x540D;&#x76F8;&#x540C;&#xFF0C;&#x53C2;&#x6570;&#x5217;&#x8868;&#x4E0D;&#x540C;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x540C;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x540D;&#x547D;&#x540D;&#x4E00;&#x7EC4;&#x529F;&#x80FD;&#x76F8;&#x4F3C;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x8FD9;&#x6837;&#x505A;&#x51CF;&#x5C11;&#x4E86;&#x51FD;&#x6570;&#x540D;&#x7684;&#x6570;&#x91CF;&#xFF0C;&#x907F;&#x514D;&#x4E86;&#x540D;&#x5B57;&#x7A7A;&#x95F4;&#x7684;&#x6C61;&#x67D3;&#xFF0C;&#x5BF9;&#x4E8E;&#x7A0B;&#x5E8F;&#x7684;&#x53EF;&#x8BFB;&#x6027;&#x6709;&#x5F88;&#x5927;&#x7684;&#x597D;&#x5904;&#x3002;</li>
+<li><code>distance</code>&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x8BA1;&#x7B97;&#x4E24;&#x4E2A;&#x8FED;&#x4EE3;&#x5668;&#x4E4B;&#x95F4;&#x7684;&#x8DDD;&#x79BB;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x51CF;&#x53F7;&#x8BA1;&#x7B97;.</li>
+</ol>
 <h2 id="&#x4EE3;&#x7801;&#x5B9E;&#x73B0;">&#x4EE3;&#x7801;&#x5B9E;&#x73B0;</h2>
 <h3 id="approach-1">Approach 1</h3>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> {</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; generateParenthesis(<span class="keyword">int</span> n) {</span><br><span class="line">        <span class="keyword">if</span>(n == <span class="number">0</span>) <span class="keyword">return</span> <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;(<span class="number">1</span>, <span class="string">&quot;&quot;</span>);</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; ans;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++){</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">auto</span> left: generateParenthesis(i)){</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">auto</span> right: generateParenthesis(n<span class="number">-1</span>-i)){</span><br><span class="line">                    ans.push_back(<span class="string">&quot;(&quot;</span>+left+<span class="string">&quot;)&quot;</span>+right);</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    }</span><br><span class="line">};</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> {</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">TreeNode* <span class="title">buildTree1</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; preorder, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; inorder)</span> </span>{</span><br><span class="line">        <span class="keyword">if</span>(inorder.empty()) <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">        <span class="keyword">auto</span> node = <span class="keyword">new</span> TreeNode(preorder[<span class="number">0</span>]);</span><br><span class="line">        <span class="keyword">auto</span> index = find(inorder.begin(), inorder.end(), preorder[<span class="number">0</span>]);</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; left_inorder(inorder.begin(), index);</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; right_inorder(index+<span class="number">1</span>, inorder.end());</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; left_preorder(preorder.begin()+<span class="number">1</span>, preorder.begin()+left_inorder.size()+<span class="number">1</span>);</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; right_preorder(preorder.begin()+left_inorder.size()+<span class="number">1</span>, preorder.end());</span><br><span class="line">        node-&gt;left = buildTree(left_preorder, left_inorder);</span><br><span class="line">        node-&gt;right = buildTree(right_preorder, right_inorder);</span><br><span class="line">        <span class="keyword">return</span> node;</span><br><span class="line">    }</span><br><span class="line">};</span><br></pre></td></tr></table></figure>
 <h3 id="approach-2">Approach 2</h3>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> {</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; generateParenthesis(<span class="keyword">int</span> n) {</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;&gt; dp(n+<span class="number">1</span>, <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt;());</span><br><span class="line">        dp[<span class="number">0</span>].push_back(<span class="string">&quot;&quot;</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++){</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; i; j++){</span><br><span class="line">                <span class="keyword">for</span>(<span class="keyword">auto</span> left: dp[j]){</span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">auto</span> right: dp[i<span class="number">-1</span>-j]){</span><br><span class="line">                        dp[i].push_back(<span class="string">&quot;(&quot;</span>+left+<span class="string">&quot;)&quot;</span>+right);</span><br><span class="line">                    }</span><br><span class="line">                }</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> dp[n];</span><br><span class="line">    }</span><br><span class="line">};</span><br></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> {</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">unordered_map</span>&lt;<span class="keyword">int</span>, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator&gt; index;</span><br><span class="line">    <span class="function">TreeNode* <span class="title">buildTree</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; preorder, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; inorder)</span> </span>{</span><br><span class="line">        <span class="keyword">for</span>(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator iter = inorder.begin(); iter != inorder.end(); iter++){</span><br><span class="line">            index[*iter] = iter;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">return</span> buildTree(preorder.begin(), preorder.end(), inorder.begin(), inorder.end());</span><br><span class="line">    }</span><br><span class="line">    <span class="function">TreeNode* <span class="title">buildTree</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator pre_left, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator pre_right, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator in_left, <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;::iterator in_right)</span></span>{</span><br><span class="line">        <span class="keyword">if</span>(pre_left == pre_right) <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">        <span class="keyword">auto</span> node = <span class="keyword">new</span> TreeNode(*pre_left);</span><br><span class="line">        <span class="keyword">auto</span> pos = index[node-&gt;val];</span><br><span class="line">        <span class="comment">// auto len = distance(in_left, pos);</span></span><br><span class="line">        <span class="keyword">auto</span> len = pos - in_left;</span><br><span class="line">        node-&gt;left = buildTree(pre_left+<span class="number">1</span>, pre_left+len+<span class="number">1</span>, in_left, pos);</span><br><span class="line">        node-&gt;right = buildTree(pre_left+len+<span class="number">1</span>, pre_right, pos+<span class="number">1</span>, in_right);</span><br><span class="line">        <span class="keyword">return</span> node;</span><br><span class="line">    }</span><br><span class="line">};</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -459,9 +463,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/string/" rel="tag"># string</a>
-          
-            <a href="/tags/recursion/" rel="tag"># recursion</a>
+            <a href="/tags/tree/" rel="tag"># tree</a>
           
         </div>
       
@@ -474,8 +476,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/06/16/21-Merge-Two-Sorted-Lists/" rel="next" title="21.Merge Two Sorted Lists">
-                <i class="fa fa-chevron-left"></i> 21.Merge Two Sorted Lists
+              <a href="/2019/06/23/28-Implement-strStr/" rel="next" title>
+                <i class="fa fa-chevron-left"></i> 
               </a>
             
           </div>
@@ -484,8 +486,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/06/18/150-Evaluate-Reverse-Polish-Notation/" rel="prev" title="150.Evaluate Reverse Polish Notation">
-                150.Evaluate Reverse Polish Notation <i class="fa fa-chevron-right"></i>
+              <a href="/2019/07/06/26-Remove-Duplicates-from-Sorted-Array/" rel="prev" title="26.Remove Duplicates from Sorted Array">
+                26.Remove Duplicates from Sorted Array <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -788,7 +790,7 @@
   
 
 
-  <script src="/js/next-boot.js?v=7.1.1"></script>
+  <script src="/js/next-boot.js?v=7.1.1"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
   
@@ -818,46 +820,6 @@
   
   
 
-  
-    
-      <script type="text/x-mathjax-config">
-  
-
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
-      processEscapes: true,
-      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    },
-    TeX: {
-      
-      equationNumbers: {
-        autoNumber: 'AMS'
-      }
-    }
-  });
-  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
-    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
-      if (data.display) {
-        var next = data.script.nextSibling;
-        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
-        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
-      }
-    });
-  });
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for (i = 0; i < all.length; i += 1) {
-      document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
-    }
-  });
-</script>
-<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-
-    
   
 
 
